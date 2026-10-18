@@ -1,0 +1,3269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Uptown Pet Salon — Chicago's Happy Place for Pets</title>
+<meta name="description" content="Dog and cat grooming at Uptown Pet Salon, Chicago. Call 773-878-8400.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..800&family=Nunito:wght@600;700;800;900;1000&display=swap" rel="stylesheet">
+
+<!-- GSAP 3 & ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<style>
+:root {
+  --blue: #527bb9;
+  --sky: #eaf0ff;
+  --ink: #111827;
+  --yellow: #ffd33f;
+  --yellow-hover: #ffc71e;
+  --pink: #ffcbc5;
+  --mint: #bfe8d6;
+  --purple: #c6b4ff;
+  --paper: #fffdf8;
+  --muted: #576579;
+  --dark: #121a2a;
+  --white: #ffffff;
+  --border-radius-card: 18px;
+  --shadow-neobrutal: 5px 6px 0 var(--ink);
+  --shadow-neobrutal-hover: 10px 12px 0 var(--ink);
+  --shadow-neobrutal-lg: 8px 9px 0 var(--ink);
+  --shadow-neobrutal-sm: 3px 3px 0 var(--ink);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background: var(--blue);
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* Site Layout Shell */
+.site {
+  width: min(1540px, 100%);
+  margin: 0 auto;
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 30px 90px rgba(16, 36, 69, 0.35);
+  position: relative;
+}
+
+.wrap {
+  width: min(1220px, calc(100% - 72px));
+  margin: 0 auto;
+}
+
+/* Top Navigation */
+.topnav {
+  position: absolute;
+  z-index: 50;
+  top: 24px;
+  left: 0;
+  right: 0;
+}
+
+.nav {
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: 1000 25px/1 Nunito, sans-serif;
+  letter-spacing: -1.4px;
+  user-select: none;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  background: var(--yellow);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  font-size: 22px;
+  box-shadow: 3px 3px 0 var(--ink);
+  transform: rotate(-8deg);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.brand-mark:hover {
+  transform: rotate(14deg) scale(1.12);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand small {
+  display: block;
+  font: 800 8.5px "DM Sans", sans-serif;
+  letter-spacing: 2.2px;
+  color: #435166;
+  margin-top: 3px;
+}
+
+.navlinks {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.navlinks a:not(.nav-btn) {
+  position: relative;
+  padding: 6px 0;
+  color: var(--ink);
+  transition: color 0.2s ease;
+}
+
+.navlinks a:not(.nav-btn)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 3.5px;
+  border-radius: 4px;
+  background: var(--yellow);
+  transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navlinks a:not(.nav-btn):hover::after {
+  width: 100%;
+}
+
+.nav-btn, .btn-yellow {
+  background: var(--yellow);
+  color: var(--ink);
+  border: 2.5px solid var(--ink);
+  border-radius: 9px;
+  padding: 12px 22px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  box-shadow: 4px 5px 0 var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.nav-btn:hover, .btn-yellow:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 8px 0 var(--ink);
+  background-color: var(--yellow-hover);
+}
+
+.nav-btn:active, .btn-yellow:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.btn-arrow-icon {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-btn:hover .btn-arrow-icon, .btn-yellow:hover .btn-arrow-icon {
+  transform: translate(3px, -3px);
+}
+
+.menu {
+  display: none;
+  background: white;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  font-size: 24px;
+  line-height: 1;
+  padding: 8px 12px;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+/* ==========================================================
+   HERO SECTION - Picture Shifted UP & Optimized Fold
+========================================================== */
+.hero {
+  background: var(--sky);
+  position: relative;
+  min-height: 740px;
+  padding: 118px 0 65px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#bdcfee 1.3px, transparent 1.3px);
+  background-size: 26px 26px;
+  opacity: 0.45;
+  mask-image: linear-gradient(90deg, black, transparent 80%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -90px;
+  top: -150px;
+  width: 530px;
+  height: 530px;
+  border-radius: 50%;
+  border: 85px solid #d4e0f7;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  min-height: 560px;
+  align-items: flex-start; /* Picture shifted up cleanly */
+  gap: 36px;
+  padding-top: 10px;
+}
+
+.hero-copy {
+  padding: 24px 0 30px;
+  position: relative;
+  z-index: 5;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px solid var(--ink);
+  background: #ffffff;
+  padding: 8px 16px;
+  border-radius: 40px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0 var(--ink);
+  margin-bottom: 24px;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: default;
+}
+
+.pill:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.pill b {
+  color: #946c00;
+  font-size: 15px;
+}
+
+.hero h1 {
+  font: 1000 clamp(48px, 6.2vw, 84px)/0.94 Nunito, sans-serif;
+  letter-spacing: -3.8px;
+  margin: 0 0 24px;
+  max-width: 650px;
+}
+
+.hero h1 .highlight {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.highlight-bar {
+  position: absolute;
+  left: 0;
+  right: -6px;
+  bottom: 5px;
+  height: 22px;
+  background: var(--yellow);
+  z-index: -1;
+  transform: rotate(-1.5deg);
+  transform-origin: left center;
+  border-radius: 4px;
+}
+
+.hero-copy > p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: #495568;
+  max-width: 440px;
+  margin: 0 0 32px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 38px;
+}
+
+.text-arrow {
+  font-size: 13.5px;
+  font-weight: 900;
+  color: var(--ink);
+  border-bottom: 2.5px solid var(--ink);
+  padding-bottom: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+
+.text-arrow:hover {
+  transform: translateX(5px);
+  border-color: #3f66a6;
+}
+
+.trust-mini {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.faces {
+  display: flex;
+}
+
+.faces img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+  box-shadow: 2px 2px 0 var(--ink);
+  margin-left: -10px;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), z-index 0.2s;
+  cursor: pointer;
+}
+
+.faces img:first-child {
+  margin-left: 0;
+}
+
+.faces img:hover {
+  transform: translateY(-5px) scale(1.15);
+  z-index: 10;
+}
+
+.trust-mini strong {
+  font: 900 14px Nunito, sans-serif;
+  display: block;
+  color: var(--ink);
+}
+
+.trust-mini small {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* ==========================================================
+   HERO ART - PUSHED UP WITH INTENSE HOVER LAYERS
+========================================================== */
+.hero-art {
+  height: 610px;
+  position: relative;
+  margin-top: -42px; /* LIFTED UP INTO HIGH VIEW */
+  z-index: 2;
+  perspective: 1200px;
+}
+
+.blob {
+  position: absolute;
+  inset: 6px -8px 22px 10px; /* Shifted up to cradle the picture */
+  background: var(--yellow);
+  border: 2.5px solid var(--ink);
+  box-shadow: 11px 11px 0 var(--ink);
+  border-radius: 46% 54% 36% 64% / 49% 41% 59% 51%;
+  transform: rotate(5deg);
+  transition: border-radius 0.8s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-art:hover .blob {
+  border-radius: 42% 58% 50% 50% / 54% 45% 55% 46%;
+  transform: rotate(2deg) scale(1.02);
+}
+
+.hero-main-photo {
+  position: absolute;
+  left: 16%;
+  top: 0%; /* LIFTED TO THE VERY TOP */
+  width: 70%;
+  height: 90%;
+  border: 10px solid #ffffff;
+  border-radius: 46% 46% 24px 24px;
+  overflow: hidden;
+  box-shadow: 13px 14px 0 var(--ink);
+  transform: rotate(2deg);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.hero-main-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-art:hover .hero-main-photo {
+  transform: rotate(0deg) translateY(-8px);
+  box-shadow: 16px 18px 0 var(--ink);
+}
+
+.hero-art:hover .hero-main-photo img {
+  transform: scale(1.07);
+}
+
+.float-photo {
+  position: absolute;
+  z-index: 5;
+  overflow: hidden;
+  border: 7px solid #ffffff;
+  box-shadow: 7px 8px 0 var(--ink);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.float-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.float-photo.cat {
+  left: -3%;
+  top: 11%; /* Raised higher up */
+  width: 35%;
+  height: 31%;
+  border-radius: 22px;
+  transform: rotate(-9deg);
+  background: var(--pink);
+}
+
+.float-photo.pup {
+  right: -3%;
+  bottom: 4%; /* Raised up */
+  width: 34%;
+  height: 30%;
+  border-radius: 22px;
+  transform: rotate(8deg);
+  background: var(--purple);
+}
+
+.float-photo.cat:hover {
+  transform: rotate(-2deg) translateY(-6px) scale(1.08);
+  box-shadow: 10px 11px 0 var(--ink);
+}
+
+.float-photo.pup:hover {
+  transform: rotate(3deg) translateY(-6px) scale(1.08);
+  box-shadow: 10px 11px 0 var(--ink);
+}
+
+.float-photo:hover img {
+  transform: scale(1.1);
+}
+
+.sticker {
+  position: absolute;
+  z-index: 6;
+  border: 2.5px solid var(--ink);
+  border-radius: 50%;
+  width: 102px;
+  height: 102px;
+  background: var(--pink);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font: 1000 12.5px/1.1 Nunito, sans-serif;
+  letter-spacing: -0.2px;
+  transform: rotate(-13deg);
+  right: -3%;
+  top: -2%; /* Pushed up nicely */
+  box-shadow: 5px 6px 0 var(--ink);
+  user-select: none;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, background-color 0.25s;
+}
+
+.sticker:hover {
+  transform: rotate(18deg) scale(1.15);
+  box-shadow: 8px 9px 0 var(--ink);
+  background: #ffb8b0;
+}
+
+.sticker span {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.paw-doodle {
+  position: absolute;
+  z-index: 7;
+  font-size: 36px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.pd1 {
+  left: 9%;
+  top: 1%;
+  color: #d8a600;
+}
+
+.pd2 {
+  right: 1%;
+  top: 45%;
+  color: #7b94d1;
+}
+
+.pd3 {
+  left: 6%;
+  bottom: 8%;
+  font-size: 28px;
+  color: #5c7cb5;
+}
+
+.hero-caption {
+  position: absolute;
+  bottom: 4px;
+  left: 17%;
+  z-index: 8;
+  font: 1000 17px Nunito, sans-serif;
+  background: var(--white);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  padding: 10px 18px;
+  box-shadow: 5px 5px 0 var(--ink);
+  transform: rotate(-3deg);
+  user-select: none;
+  white-space: nowrap;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: default;
+}
+
+.hero-caption:hover {
+  transform: rotate(0deg) translateY(-4px) scale(1.04);
+}
+
+/* Marquee Banner */
+.marquee {
+  overflow: hidden;
+  background: var(--yellow);
+  border-block: 2px solid var(--ink);
+  transform: rotate(-1.1deg) scale(1.025);
+  position: relative;
+  z-index: 4;
+  padding: 16px 0;
+  user-select: none;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+}
+
+.marquee-track span {
+  font: 1000 17px/1 Nunito, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 0 28px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.marquee-track b {
+  font-size: 20px;
+  color: var(--ink);
+}
+
+/* Common Section Layout */
+.section {
+  padding: 110px 0;
+  position: relative;
+}
+
+.heading {
+  max-width: 640px;
+  margin: 0 auto 54px;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 1000;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #926900;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.heading h2 {
+  font: 1000 clamp(38px, 4.6vw, 58px)/1.0 Nunito, sans-serif;
+  letter-spacing: -2.2px;
+  margin: 0 0 16px;
+}
+
+.heading p {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--muted);
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ==========================================================
+   DYNAMIC $10,000 CARD EFFECTS & HOVER STYLES
+========================================================== */
+.card-shine {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.35) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+/* Section: Services */
+.services {
+  background: var(--paper);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  perspective: 1200px;
+}
+
+.service-card {
+  border: 2.5px solid var(--ink);
+  border-radius: var(--border-radius-card);
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: var(--shadow-neobrutal);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.service-card:hover {
+  transform: translate(-4px, -6px);
+  box-shadow: var(--shadow-neobrutal-hover);
+}
+
+.service-card:hover .card-shine {
+  opacity: 1;
+}
+
+.service-photo {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+  background: #eef2f9;
+}
+
+.service-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card:hover .service-photo img {
+  transform: scale(1.12);
+}
+
+.service-number {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--yellow);
+  border: 1.5px solid var(--ink);
+  padding: 6px 11px;
+  border-radius: 6px;
+  font: 1000 10.5px/1 Nunito, sans-serif;
+  letter-spacing: 0.05em;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s;
+  z-index: 2;
+}
+
+.service-card:hover .service-number {
+  transform: rotate(-6deg) scale(1.08);
+  background: #ffffff;
+}
+
+.service-content {
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.service-content h3 {
+  font: 1000 23px Nunito, sans-serif;
+  letter-spacing: -0.6px;
+  margin: 0 0 10px;
+  transition: color 0.2s;
+}
+
+.service-card:hover .service-content h3 {
+  color: #264a8c;
+}
+
+.service-content p {
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 0 0 22px;
+  flex-grow: 1;
+}
+
+.service-link {
+  font-size: 12.5px;
+  font-weight: 1000;
+  border-bottom: 2px solid var(--yellow);
+  padding-bottom: 4px;
+  align-self: flex-start;
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: border-color 0.2s, color 0.2s, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.service-link span {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.service-card:hover .service-link {
+  border-color: var(--ink);
+  color: #264a8c;
+  transform: translateX(3px);
+}
+
+.service-card:hover .service-link span {
+  transform: translate(3px, -3px);
+}
+
+.section-cta {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* ==========================================================
+   STATS SECTION - TACTILE POP & ROTATION
+========================================================== */
+.stats {
+  background: var(--pink);
+  padding: 82px 0;
+  position: relative;
+  overflow: hidden;
+  border-block: 2.5px solid var(--ink);
+}
+
+.stats::after {
+  content: "🐾";
+  position: absolute;
+  right: 4%;
+  top: -30px;
+  font-size: 140px;
+  opacity: 0.12;
+  transform: rotate(20deg);
+  pointer-events: none;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  perspective: 1200px;
+}
+
+.stat {
+  background: var(--yellow);
+  border: 2.5px solid var(--ink);
+  border-radius: 75px 75px 28px 28px;
+  text-align: center;
+  padding: 30px 18px 26px;
+  box-shadow: 6px 7px 0 var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+}
+
+.stat:nth-child(2) {
+  background: var(--mint);
+  transform: translateY(-10px);
+}
+
+.stat:nth-child(3) {
+  background: var(--purple);
+}
+
+.stat:hover {
+  transform: translateY(-18px) rotate(1.8deg) scale(1.03);
+  box-shadow: 10px 13px 0 var(--ink);
+}
+
+.stat:nth-child(2):hover {
+  transform: translateY(-24px) rotate(-1.8deg) scale(1.03);
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 12px;
+  font-size: 24px;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
+}
+
+.stat:hover .stat-icon {
+  transform: rotate(20deg) scale(1.2);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.stat strong {
+  font: 1000 clamp(38px, 4.2vw, 46px)/1.0 Nunito, sans-serif;
+  letter-spacing: -1.2px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.stat small {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+/* ==========================================================
+   STORY SECTION
+========================================================== */
+.story {
+  background: var(--sky);
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 80px;
+}
+
+.story-visual {
+  height: 510px;
+  position: relative;
+  perspective: 1200px;
+}
+
+.story-photo {
+  position: absolute;
+  overflow: hidden;
+  border: 9px solid #ffffff;
+  box-shadow: var(--shadow-neobrutal-lg);
+  background: #ffffff;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+  cursor: pointer;
+}
+
+.story-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-photo.big {
+  inset: 0 14% 8% 0;
+  border-radius: 36% 36% 22px 22px;
+  transform: rotate(-3deg);
+}
+
+.story-photo.small {
+  right: 0;
+  bottom: 0;
+  width: 47%;
+  height: 44%;
+  border-radius: 20px;
+  transform: rotate(5deg);
+  border-width: 8px;
+}
+
+.story-photo.big:hover {
+  transform: rotate(-1deg) translateY(-6px) scale(1.03);
+  box-shadow: 14px 15px 0 var(--ink);
+}
+
+.story-photo.big:hover img {
+  transform: scale(1.08);
+}
+
+.story-photo.small:hover {
+  transform: rotate(2deg) translateY(-6px) scale(1.06);
+  box-shadow: 12px 13px 0 var(--ink);
+}
+
+.story-photo.small:hover img {
+  transform: scale(1.08);
+}
+
+.story-bubble {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  bottom: 6%;
+  background: var(--yellow);
+  border: 2.5px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  padding: 14px 20px;
+  border-radius: 8px;
+  font: 1000 14px Nunito, sans-serif;
+  transform: rotate(-4deg);
+  user-select: none;
+  white-space: nowrap;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: default;
+}
+
+.story-bubble:hover {
+  transform: rotate(0deg) translateY(-4px) scale(1.06);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+
+.story-copy h2 {
+  font: 1000 clamp(38px, 4.6vw, 58px)/0.96 Nunito, sans-serif;
+  letter-spacing: -2.4px;
+  margin: 12px 0 20px;
+}
+
+.story-copy p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #4c586c;
+  margin: 0 0 18px;
+}
+
+.checklist {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 24px;
+  margin: 28px 0 34px;
+}
+
+.check {
+  font-size: 13px;
+  font-weight: 800;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: default;
+}
+
+.check:hover {
+  transform: translateX(4px);
+}
+
+.check span {
+  background: var(--yellow);
+  border: 1.5px solid var(--ink);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-size: 12px;
+  box-shadow: 1.5px 1.5px 0 var(--ink);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.check:hover span {
+  transform: scale(1.15) rotate(10deg);
+}
+
+/* ==========================================================
+   PROCESS SECTION - 3D POP & EMOJI WIGGLE
+========================================================== */
+.process {
+  background: var(--paper);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  perspective: 1200px;
+}
+
+.process-card {
+  border: 2.5px solid var(--ink);
+  border-radius: var(--border-radius-card);
+  padding: 34px 30px;
+  background: #fff0b9;
+  box-shadow: var(--shadow-neobrutal);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.process-card:nth-child(2) {
+  background: #c9efdf;
+}
+
+.process-card:nth-child(3) {
+  background: #d8ccff;
+}
+
+.process-card:hover {
+  transform: translate(-4px, -8px);
+  box-shadow: var(--shadow-neobrutal-hover);
+}
+
+.process-card:hover .card-shine {
+  opacity: 1;
+}
+
+.process-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.process-num {
+  font: 1000 12px/1 Nunito, sans-serif;
+  letter-spacing: 0.05em;
+  background: #ffffff;
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  padding: 7px 11px;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s;
+}
+
+.process-card:hover .process-num {
+  transform: scale(1.08) rotate(3deg);
+  background: var(--yellow);
+}
+
+.process-emoji {
+  font-size: 40px;
+  line-height: 1;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: inline-block;
+}
+
+.process-card:hover .process-emoji {
+  transform: scale(1.3) rotate(-12deg);
+}
+
+.process-card h3 {
+  font: 1000 24px Nunito, sans-serif;
+  letter-spacing: -0.5px;
+  margin: 24px 0 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.process-card p {
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: #455060;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================
+   GALLERY SECTION - TACTILE TILES & ZOOMS
+========================================================== */
+.gallery {
+  background: var(--dark);
+  color: #ffffff;
+  position: relative;
+}
+
+.gallery::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.gallery .wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.gallery .eyebrow {
+  color: var(--yellow);
+}
+
+.gallery .heading p {
+  color: #b1bccd;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr 0.9fr;
+  grid-template-rows: 250px 230px;
+  gap: 22px;
+  perspective: 1200px;
+}
+
+.gallery-tile {
+  border: 3px solid #ffffff;
+  border-radius: var(--border-radius-card);
+  overflow: hidden;
+  position: relative;
+  min-width: 0;
+  background: #1b263b;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-tile:hover {
+  transform: translate(-3px, -6px) rotate(-0.5deg);
+  box-shadow: 8px 10px 0 var(--yellow);
+}
+
+.gallery-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-tile:hover img {
+  transform: scale(1.12);
+}
+
+.gallery-tile.tall {
+  grid-row: span 2;
+}
+
+.gallery-tile.wide {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.gallery-tag {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background: var(--yellow);
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  padding: 8px 13px;
+  font: 1000 12px Nunito, sans-serif;
+  box-shadow: 3px 3px 0 var(--ink);
+  user-select: none;
+  z-index: 2;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.gallery-tile:hover .gallery-tag {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+.gallery-card {
+  border: 2.5px solid var(--ink);
+  border-radius: var(--border-radius-card);
+  background: var(--yellow);
+  color: var(--ink);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 6px 6px 0 var(--yellow);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-card:nth-child(3) {
+  background: var(--pink);
+  box-shadow: 6px 6px 0 var(--pink);
+}
+
+.gallery-card:hover {
+  transform: translate(-4px, -6px);
+  box-shadow: 10px 10px 0 #ffffff;
+}
+
+.gallery-card .emoji {
+  font-size: 36px;
+  margin-bottom: 8px;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: inline-block;
+}
+
+.gallery-card:hover .emoji {
+  transform: scale(1.2) rotate(8deg);
+}
+
+.gallery-card h3 {
+  font: 1000 27px/1.05 Nunito, sans-serif;
+  letter-spacing: -0.8px;
+  margin: 8px 0;
+}
+
+.gallery-card p {
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: #3b4455;
+  margin: 0;
+}
+
+/* ==========================================================
+   PACKAGES SECTION - 3D POP & BUTTON SPRING
+========================================================== */
+.packages {
+  background: #f5f8ff;
+}
+
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: stretch;
+  perspective: 1200px;
+}
+
+.package {
+  border: 2.5px solid var(--ink);
+  border-radius: var(--border-radius-card);
+  background: #ffffff;
+  padding: 36px 30px;
+  box-shadow: var(--shadow-neobrutal);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.package:hover {
+  transform: translate(-4px, -7px);
+  box-shadow: var(--shadow-neobrutal-hover);
+}
+
+.package:hover .card-shine {
+  opacity: 1;
+}
+
+.package.featured {
+  background: #ffcf36;
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-neobrutal-lg);
+}
+
+.package.featured:hover {
+  transform: translate(-4px, -18px) scale(1.02);
+  box-shadow: 12px 14px 0 var(--ink);
+}
+
+.package-icon {
+  font-size: 36px;
+  display: inline-block;
+  margin-bottom: 12px;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.package:hover .package-icon {
+  transform: scale(1.25) translateY(-5px);
+}
+
+.package h3 {
+  font: 1000 25px Nunito, sans-serif;
+  letter-spacing: -0.6px;
+  margin: 0 0 8px;
+}
+
+.package p {
+  font-size: 13.5px;
+  color: #556073;
+  line-height: 1.75;
+  margin: 0 0 20px;
+}
+
+.package ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 0 30px;
+  flex-grow: 1;
+}
+
+.package li {
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease;
+}
+
+.package:hover li {
+  transform: translateX(3px);
+}
+
+.package li::before {
+  content: "🐾";
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.package .btn-yellow {
+  width: 100%;
+  margin-top: auto;
+  text-align: center;
+}
+
+.package.featured .btn-yellow {
+  background: var(--ink);
+  color: #ffffff;
+  box-shadow: 4px 4px 0 #ffffff;
+}
+
+.package.featured .btn-yellow:hover {
+  background: #24324d;
+  box-shadow: 6px 6px 0 #ffffff;
+}
+
+/* ==========================================================
+   FAQ SECTION
+========================================================== */
+.faq {
+  background: var(--paper);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.faq-intro {
+  position: sticky;
+  top: 40px;
+}
+
+.faq-intro h2 {
+  font: 1000 clamp(38px, 4.6vw, 56px)/0.98 Nunito, sans-serif;
+  letter-spacing: -2px;
+  margin: 12px 0 16px;
+}
+
+.faq-intro p {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--muted);
+  margin: 0 0 26px;
+}
+
+.faq-decoration {
+  font-size: 72px;
+  opacity: 0.2;
+  margin-top: 30px;
+  user-select: none;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-list details {
+  border-bottom: 1.5px solid #e1e7f2;
+  overflow: hidden;
+  transition: background-color 0.2s ease;
+}
+
+.faq-list details:first-child {
+  border-top: 1.5px solid #e1e7f2;
+}
+
+.faq-list summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  list-style: none;
+  padding: 22px 4px;
+  font: 900 15px/1.3 Nunito, sans-serif;
+  color: var(--ink);
+  transition: color 0.2s ease;
+}
+
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list summary:hover {
+  color: #3b5fa0;
+}
+
+.faq-list summary span {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  background: var(--yellow);
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  box-shadow: 2px 2px 0 var(--ink);
+  font-size: 15px;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s;
+}
+
+.faq-list details[open] summary span {
+  transform: rotate(45deg);
+  background: var(--pink);
+}
+
+.faq-list details p {
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: #4b576b;
+  padding: 0 36px 20px 4px;
+  margin: 0;
+}
+
+/* ==========================================================
+   FINAL CTA
+========================================================== */
+.final-cta {
+  background: #ffcf36;
+  border-block: 2.5px solid var(--ink);
+  padding: 70px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.final-cta::after {
+  content: "🐾";
+  position: absolute;
+  right: 6%;
+  top: -25px;
+  font-size: 140px;
+  opacity: 0.14;
+  transform: rotate(-22deg);
+  pointer-events: none;
+}
+
+.cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-row h2 {
+  font: 1000 clamp(36px, 4.6vw, 58px)/1.0 Nunito, sans-serif;
+  letter-spacing: -2.2px;
+  margin: 0 0 12px;
+}
+
+.cta-row p {
+  font-size: 13.5px;
+  margin: 0;
+  max-width: 580px;
+  line-height: 1.85;
+  color: #2c384a;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 210px;
+}
+
+.btn-dark {
+  background: var(--ink);
+  color: #ffffff;
+  border: 2.5px solid var(--ink);
+  border-radius: 9px;
+  padding: 13px 22px;
+  font-size: 13px;
+  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 4px 5px 0 #ffffff;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.btn-dark:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 8px 0 #ffffff;
+}
+
+.btn-dark:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 #ffffff;
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+.footer {
+  background: var(--dark);
+  color: #ffffff;
+  padding: 72px 0 28px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer .brand-mark {
+  box-shadow: 3px 3px 0 #ffffff;
+}
+
+.footer p {
+  font-size: 12px;
+  color: #bac4d2;
+  line-height: 1.8;
+  max-width: 280px;
+  margin: 14px 0 0;
+}
+
+.footer h4 {
+  font: 1000 14px Nunito, sans-serif;
+  margin: 4px 0 18px;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.footer-links a, .footer-links span {
+  font-size: 12px;
+  color: #bac4d2;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--yellow);
+  transform: translateX(4px);
+}
+
+.footer-bottom {
+  border-top: 1px solid #283548;
+  margin-top: 48px;
+  padding-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  color: #8f9db1;
+  font-size: 11px;
+}
+
+.socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.socials a {
+  border: 1.5px solid #48576f;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-size: 14px;
+  transition: background-color 0.2s, color 0.2s, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.socials a:hover {
+  background: var(--yellow);
+  color: var(--ink);
+  border-color: var(--yellow);
+  transform: translateY(-4px) scale(1.1);
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--dark);
+  color: #ffffff;
+  padding: 13px 20px;
+  border: 2px solid var(--yellow);
+  border-radius: 8px;
+  z-index: 99;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 4px 4px 0 var(--ink);
+  opacity: 0;
+  transform: translateY(15px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Click Spark Effect */
+.click-spark {
+  position: absolute;
+  pointer-events: none;
+  z-index: 9999;
+  font-size: 18px;
+  transform: translate(-50%, -50%);
+  user-select: none;
+}
+
+/* Mobile Fixed Booking Bar */
+.mobile-book {
+  display: none;
+}
+
+/* ==========================================================
+   RESPONSIVE BREAKPOINTS
+========================================================== */
+@media (max-width: 960px) {
+  .wrap {
+    width: calc(100% - 48px);
+  }
+  .hero {
+    min-height: 700px;
+    padding-top: 110px;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  .hero h1 {
+    font-size: 60px;
+  }
+  .hero-art {
+    height: 500px;
+    margin-top: 0;
+  }
+  .section {
+    padding: 85px 0;
+  }
+  .service-photo {
+    height: 180px;
+  }
+  .story-grid {
+    gap: 40px;
+  }
+  .story-visual {
+    height: 440px;
+  }
+  .gallery-grid {
+    grid-template-rows: 210px 190px;
+    gap: 14px;
+  }
+  .faq-grid {
+    gap: 45px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px 25px;
+  }
+}
+
+@media (max-width: 720px) {
+  .wrap {
+    width: calc(100% - 32px);
+  }
+  .topnav {
+    top: 14px;
+  }
+  .nav {
+    height: 56px;
+  }
+  .brand {
+    font-size: 22px;
+  }
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+  .menu {
+    display: block;
+  }
+  .navlinks {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 6px 6px 0 var(--ink);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    z-index: 60;
+  }
+  .navlinks.open {
+    display: flex;
+  }
+  .hero {
+    padding: 95px 0 50px;
+    min-height: auto;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 25px;
+  }
+  .hero-copy {
+    padding: 10px 0 0;
+    text-align: left;
+  }
+  .hero h1 {
+    font-size: clamp(42px, 10vw, 54px);
+    letter-spacing: -2.5px;
+  }
+  .hero-art {
+    height: 380px;
+    margin: 10px 0 0;
+  }
+  .hero-main-photo {
+    left: 17%;
+    top: 5%;
+    width: 66%;
+    height: 88%;
+    border-width: 7px;
+    box-shadow: 8px 8px 0 var(--ink);
+  }
+  .float-photo.cat {
+    width: 35%;
+    height: 32%;
+    top: 18%;
+    border-width: 5px;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+  .float-photo.pup {
+    width: 34%;
+    height: 31%;
+    bottom: 8%;
+    border-width: 5px;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+  .sticker {
+    width: 84px;
+    height: 84px;
+    font-size: 10px;
+    right: 0;
+    top: 2%;
+  }
+  .sticker span {
+    font-size: 20px;
+  }
+  .hero-caption {
+    font-size: 14px;
+    left: 16%;
+    bottom: -5px;
+    padding: 8px 12px;
+  }
+  .section {
+    padding: 75px 0;
+  }
+  .heading {
+    margin-bottom: 38px;
+  }
+  .heading h2 {
+    font-size: 38px;
+  }
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .service-card {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+  .service-photo {
+    height: 100%;
+    min-height: 200px;
+  }
+  .stats {
+    padding: 55px 0;
+  }
+  .stats-grid {
+    gap: 14px;
+  }
+  .stat {
+    padding: 18px 8px;
+    border-radius: 50px 50px 20px 20px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .stat strong {
+    font-size: 28px;
+  }
+  .stat small {
+    font-size: 10px;
+  }
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .story-visual {
+    height: 380px;
+    order: 2;
+  }
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 210px 170px 190px;
+    gap: 12px;
+  }
+  .gallery-tile.tall {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+  .gallery-tile.wide {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+  .gallery-card {
+    padding: 20px;
+  }
+  .gallery-card h3 {
+    font-size: 22px;
+  }
+  .package-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .package.featured {
+    transform: none;
+  }
+  .package.featured:hover {
+    transform: translate(2px, 2px);
+  }
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .faq-intro {
+    position: static;
+  }
+  .faq-decoration {
+    display: none;
+  }
+  .cta-row {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+  .cta-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 20px;
+  }
+  .footer-brand-col {
+    grid-column: 1 / -1;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .mobile-book {
+    display: flex;
+    position: fixed;
+    z-index: 70;
+    bottom: 14px;
+    left: 14px;
+    right: 14px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: var(--dark);
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 12px;
+    padding: 10px 12px 10px 16px;
+    box-shadow: 0 10px 30px rgba(18, 26, 42, 0.45);
+    transform: translateY(110px);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .mobile-book.show {
+    transform: translateY(0);
+  }
+  .mobile-book span {
+    font-size: 11px;
+    line-height: 1.35;
+    color: #cad2df;
+  }
+  .mobile-book strong {
+    display: block;
+    color: #ffffff;
+    font-size: 12px;
+  }
+  .mobile-book a {
+    background: var(--yellow);
+    color: var(--ink);
+    border: 1.5px solid #ffffff;
+    border-radius: 7px;
+    padding: 10px 14px;
+    font-size: 12px;
+    font-weight: 1000;
+    white-space: nowrap;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+}
+
+@media (max-width: 440px) {
+  .service-card {
+    grid-template-columns: 1fr;
+  }
+  .service-photo {
+    height: 190px;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+    max-width: 240px;
+  }
+  .stat:nth-child(2) {
+    transform: none;
+  }
+  .checklist {
+    grid-template-columns: 1fr;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .gallery-tile.tall, .gallery-tile.wide {
+    grid-column: auto;
+    height: 220px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee-track {
+    animation: none !important;
+  }
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PetStore",
+  "name": "Uptown Pet Salon",
+  "telephone": "+1-773-878-8400",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1712 W Lawrence Ave",
+    "addressLocality": "Chicago",
+    "addressRegion": "IL",
+    "postalCode": "60640",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="site">
+
+  <!-- Top Navigation -->
+  <header class="topnav" id="topNav">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="#home">
+          <span class="brand-mark magnetic">🐾</span>
+          <span class="brand-text">
+            <span>Uptown</span>
+            <small>PET SALON · CHICAGO</small>
+          </span>
+        </a>
+        <div class="navlinks" id="navlinks">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#about">Our Story</a>
+          <a href="#gallery">Happy Tails</a>
+          <a href="#packages">Menu</a>
+          <a href="#faq">FAQs</a>
+          <a href="#contact" class="nav-btn magnetic">Let's Talk <span class="btn-arrow-icon">↗</span></a>
+        </div>
+        <button class="menu" id="menu" aria-label="Toggle menu">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div class="hero-copy" id="heroCopy">
+        <div class="pill" id="heroPill"><b>🐾</b> Uptown Chicago · Since 2006</div>
+        <h1 id="heroTitle">Love, care &<br> <span class="highlight">happy tails.<span class="highlight-bar" id="highlightBar"></span></span><br>That's our thing.</h1>
+        <p id="heroText">From fresh trims to tiny paw-dicures, we help dogs and cats look adorable and feel comfortable. Good grooming, gentle hands, lots of personality.</p>
+        <div class="hero-actions" id="heroActions">
+          <a class="btn-yellow magnetic" href="tel:+17738788400">Call to Book <span class="btn-arrow-icon">↗</span></a>
+          <a class="text-arrow" href="#services">Find their fresh ↓</a>
+        </div>
+        <div class="trust-mini" id="heroTrust">
+          <div class="faces">
+            <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=100&q=80" alt="Dog">
+            <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=100&q=80" alt="Cat">
+            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=100&q=80" alt="Dog">
+          </div>
+          <div>
+            <strong>Local love since 2006</strong>
+            <small>Dogs, cats & their favorite humans</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-art" id="heroArt">
+        <div class="blob" id="heroBlob"></div>
+        <div class="hero-main-photo" id="heroMainPhoto">
+          <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1000&q=90" alt="Happy fluffy dog with a beautiful coat">
+        </div>
+        <div class="float-photo cat" id="heroCat">
+          <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=500&q=85" alt="Curious cat">
+        </div>
+        <div class="float-photo pup" id="heroPup">
+          <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=500&q=85" alt="Happy little dog">
+        </div>
+        <div class="sticker magnetic" id="heroSticker">
+          <div><span>✂️</span>FRESH<br>FUR CLUB</div>
+        </div>
+        <span class="paw-doodle pd1">🐾</span>
+        <span class="paw-doodle pd2">✦</span>
+        <span class="paw-doodle pd3">🐾</span>
+        <div class="hero-caption" id="heroCaption">Big love. Little paws. 💛</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee Banner -->
+  <div class="marquee" aria-label="Pet grooming services" id="marqueeBanner">
+    <div class="marquee-track" id="marqueeTrack">
+      <span>Fresh cuts <b>✦</b> Happy paws <b>✦</b> Dog grooming <b>✦</b> Cat care <b>✦</b> Bath time <b>✦</b> Uptown Chicago <b>✦</b></span>
+      <span>Fresh cuts <b>✦</b> Happy paws <b>✦</b> Dog grooming <b>✦</b> Cat care <b>✦</b> Bath time <b>✦</b> Uptown Chicago <b>✦</b></span>
+      <span>Fresh cuts <b>✦</b> Happy paws <b>✦</b> Dog grooming <b>✦</b> Cat care <b>✦</b> Bath time <b>✦</b> Uptown Chicago <b>✦</b></span>
+      <span>Fresh cuts <b>✦</b> Happy paws <b>✦</b> Dog grooming <b>✦</b> Cat care <b>✦</b> Bath time <b>✦</b> Uptown Chicago <b>✦</b></span>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <section class="section services" id="services">
+    <div class="wrap">
+      <div class="heading gsap-header">
+        <div class="eyebrow">THE PET GLOW-UP MENU</div>
+        <h2>Goodbye scruffy.<br>Hello <span style="background:linear-gradient(transparent 58%,var(--yellow) 58%)">oh-so-fluffy.</span></h2>
+        <p>Choose the kind of care your bestie needs. Not sure where to start? Give us a call and we'll help you figure it out.</p>
+      </div>
+
+      <div class="service-grid" id="serviceGrid">
+        <article class="service-card tilt-card">
+          <div class="card-shine"></div>
+          <div class="service-photo">
+            <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=700&q=85" alt="Professional dog grooming">
+            <span class="service-number">01 · SIGNATURE</span>
+          </div>
+          <div class="service-content">
+            <h3>Haircuts & Styling</h3>
+            <p>Breed-inspired cuts, trims, styling, and shave-downs to suit your dog's coat and everyday life.</p>
+            <a class="service-link" href="tel:+17738788400">Let's talk cuts <span>↗</span></a>
+          </div>
+        </article>
+
+        <article class="service-card tilt-card">
+          <div class="card-shine"></div>
+          <div class="service-photo">
+            <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=700&q=85" alt="Cat with bright eyes">
+            <span class="service-number">02 · CAT CLUB</span>
+          </div>
+          <div class="service-content">
+            <h3>Cat Grooming</h3>
+            <p>Brushing, combing, mat removal, baths, and lion cuts with care for feline comfort.</p>
+            <a class="service-link" href="tel:+17738788400">Purr-fect care <span>↗</span></a>
+          </div>
+        </article>
+
+        <article class="service-card tilt-card">
+          <div class="card-shine"></div>
+          <div class="service-photo">
+            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=700&q=85" alt="Happy dog ready for a bath">
+            <span class="service-number">03 · SPLISH SPLASH</span>
+          </div>
+          <div class="service-content">
+            <h3>Baths & Blow-Drys</h3>
+            <p>Deep-cleansing baths, blow-dries, and specialty flea or medicated bath options.</p>
+            <a class="service-link" href="tel:+17738788400">Get squeaky clean <span>↗</span></a>
+          </div>
+        </article>
+
+        <article class="service-card tilt-card">
+          <div class="card-shine"></div>
+          <div class="service-photo">
+            <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=700&q=85" alt="Small dog being cared for">
+            <span class="service-number">04 · QUICK FIX</span>
+          </div>
+          <div class="service-content">
+            <h3>Nails & Paw Care</h3>
+            <p>Nail trims and grinding while you wait when walk-in availability allows. Call ahead first.</p>
+            <a class="service-link" href="tel:+17738788400">Check walk-ins <span>↗</span></a>
+          </div>
+        </article>
+
+        <article class="service-card tilt-card">
+          <div class="card-shine"></div>
+          <div class="service-photo">
+            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=700&q=85" alt="Two happy dogs outdoors">
+            <span class="service-number">05 · LITTLE DETAILS</span>
+          </div>
+          <div class="service-content">
+            <h3>Hygiene & Maintenance</h3>
+            <p>Ear cleaning, paw-pad trimming, sanitary cuts, and other routine grooming details.</p>
+            <a class="service-link" href="tel:+17738788400">Tidy them up <span>↗</span></a>
+          </div>
+        </article>
+
+        <article class="service-card tilt-card">
+          <div class="card-shine"></div>
+          <div class="service-photo">
+            <img src="https://images.unsplash.com/photo-1516733968668-dbdce39c4651?auto=format&fit=crop&w=700&q=85" alt="Dog getting gentle grooming">
+            <span class="service-number">06 · GENTLE CARE</span>
+          </div>
+          <div class="service-content">
+            <h3>Brush-Outs & Detangling</h3>
+            <p>Coat brushing and detangling to help manage knots and keep furry friends looking tidy.</p>
+            <a class="service-link" href="tel:+17738788400">Talk coat care <span>↗</span></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="section-cta" id="serviceCta">
+        <a class="btn-yellow magnetic" href="tel:+17738788400">Not sure what they need? Call us <span class="btn-arrow-icon">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats" id="stats">
+    <div class="wrap stats-grid" id="statsGrid">
+      <div class="stat tilt-card">
+        <div class="card-shine"></div>
+        <div class="stat-icon">🐾</div>
+        <strong><span class="stat-counter" data-target="180">0</span>+</strong>
+        <small>Approx. customer reviews</small>
+      </div>
+      <div class="stat tilt-card">
+        <div class="card-shine"></div>
+        <div class="stat-icon">✂️</div>
+        <strong><span class="stat-counter" data-target="18">0</span>+</strong>
+        <small>Years in the neighborhood</small>
+      </div>
+      <div class="stat tilt-card">
+        <div class="card-shine"></div>
+        <div class="stat-icon">🐶</div>
+        <strong><span class="stat-counter" data-target="4.5" data-decimal="1">0</span>/5</strong>
+        <small>Approx. directory rating</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story Section -->
+  <section class="section story" id="about">
+    <div class="wrap story-grid" id="storyGrid">
+      <div class="story-visual" id="storyVisual">
+        <div class="story-photo big">
+          <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=900&q=85" alt="Dog receiving a groom">
+        </div>
+        <div class="story-photo small">
+          <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=600&q=85" alt="Happy dog close up">
+        </div>
+        <div class="story-bubble">Your neighborhood pet people 🐾</div>
+      </div>
+
+      <div class="story-copy" id="storyCopy">
+        <div class="eyebrow">A LITTLE LOVE GOES A LONG WAY</div>
+        <h2>They're not “just pets.”<br>They're your people.</h2>
+        <p>Uptown Pet Salon has been part of Chicago's Uptown and Ravenswood neighborhood since April 2006. We believe grooming should be thoughtful, personal, and tailored to the furry friend in front of us.</p>
+        <p>Whether your pet is full of zoomies or needs a little extra patience, call us to discuss their needs and the right service.</p>
+        
+        <div class="checklist" id="storyChecklist">
+          <div class="check"><span>✓</span> Dogs & cats</div>
+          <div class="check"><span>✓</span> Gentle handling</div>
+          <div class="check"><span>✓</span> Coat-specific care</div>
+          <div class="check"><span>✓</span> Local neighborhood salon</div>
+        </div>
+
+        <a class="btn-yellow magnetic" href="tel:+17738788400">Meet your pet's groomer <span class="btn-arrow-icon">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="section process" id="process">
+    <div class="wrap">
+      <div class="heading gsap-header">
+        <div class="eyebrow">NO DRAMA. JUST GOOD GROOMS.</div>
+        <h2>Three little steps<br>to a fresher floof.</h2>
+        <p>Booking is easy: a quick call gets the conversation started.</p>
+      </div>
+
+      <div class="process-grid" id="processGrid">
+        <article class="process-card tilt-card">
+          <div class="card-shine"></div>
+          <div class="process-top">
+            <span class="process-num">STEP 01</span>
+            <span class="process-emoji">📞</span>
+          </div>
+          <h3>Tell us about your pet</h3>
+          <p>Share what your furry friend needs — a fresh cut, bath, nail trim, or cat grooming.</p>
+        </article>
+
+        <article class="process-card tilt-card">
+          <div class="card-shine"></div>
+          <div class="process-top">
+            <span class="process-num">STEP 02</span>
+            <span class="process-emoji">🫧</span>
+          </div>
+          <h3>Pick the right service</h3>
+          <p>We'll talk through service options, availability, and pricing before you plan a visit.</p>
+        </article>
+
+        <article class="process-card tilt-card">
+          <div class="card-shine"></div>
+          <div class="process-top">
+            <span class="process-num">STEP 03</span>
+            <span class="process-emoji">🐕</span>
+          </div>
+          <h3>Get ready for happy</h3>
+          <p>Bring your bestie in for the care you discussed and a little extra fresh-and-fluffy love.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="section gallery" id="gallery">
+    <div class="wrap">
+      <div class="heading gsap-header">
+        <div class="eyebrow">THE CUTE STUFF</div>
+        <h2>Proof that pawsome<br>comes in every shape.</h2>
+        <p>A little inspiration for your next grooming visit.</p>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-tile tall">
+          <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=85" alt="Two happy dogs">
+          <span class="gallery-tag">Bestie energy 🐾</span>
+        </div>
+
+        <div class="gallery-tile">
+          <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=600&q=85" alt="Curious cat">
+          <span class="gallery-tag">Catitude 😼</span>
+        </div>
+
+        <div class="gallery-card tilt-card">
+          <div class="card-shine"></div>
+          <span class="emoji">✂️🐾</span>
+          <h3>Fresh fur.<br>Big feelings.</h3>
+          <p>Good grooming starts with knowing your pet.</p>
+        </div>
+
+        <div class="gallery-tile wide">
+          <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=900&q=85" alt="Dog grooming">
+          <span class="gallery-tag">Salon day glow-up ✨</span>
+        </div>
+
+        <div class="gallery-card tilt-card">
+          <div class="card-shine"></div>
+          <span class="emoji">💛🐶</span>
+          <h3>Little paws.<br>Huge personality.</h3>
+          <p>Serving Chicago's furry family since 2006.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages Section -->
+  <section class="section packages" id="packages">
+    <div class="wrap">
+      <div class="heading gsap-header">
+        <div class="eyebrow">LET'S FIND THEIR FRESH</div>
+        <h2>What's on the<br>grooming menu?</h2>
+        <p>Every coat is different, so call us for current pricing and a recommendation that fits your pet.</p>
+      </div>
+
+      <div class="package-grid" id="packageGrid">
+        <article class="package tilt-card">
+          <div class="card-shine"></div>
+          <span class="package-icon">🐾</span>
+          <h3>The Quick Tidy</h3>
+          <p>Little details that make a big difference.</p>
+          <ul>
+            <li>Nail trimming or grinding</li>
+            <li>Ear-cleaning options</li>
+            <li>Ask about walk-in availability</li>
+          </ul>
+          <a class="btn-yellow magnetic" href="tel:+17738788400">Ask about a tidy <span class="btn-arrow-icon">↗</span></a>
+        </article>
+
+        <article class="package featured tilt-card">
+          <div class="card-shine"></div>
+          <span class="package-icon">✂️</span>
+          <h3>The Full Fresh</h3>
+          <p>A grooming refresh based on your dog's coat and style.</p>
+          <ul>
+            <li>Bath and blow-dry options</li>
+            <li>Haircut, trim, or styling</li>
+            <li>Hygiene maintenance options</li>
+          </ul>
+          <a class="btn-yellow magnetic" href="tel:+17738788400">Ask about a full groom <span class="btn-arrow-icon">↗</span></a>
+        </article>
+
+        <article class="package tilt-card">
+          <div class="card-shine"></div>
+          <span class="package-icon">🐱</span>
+          <h3>The Cat Care</h3>
+          <p>Feline grooming options, discussed around your cat's needs.</p>
+          <ul>
+            <li>Brushing and combing</li>
+            <li>Mat removal or lion cut</li>
+            <li>Bath options by consultation</li>
+          </ul>
+          <a class="btn-yellow magnetic" href="tel:+17738788400">Ask about cat care <span class="btn-arrow-icon">↗</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section faq" id="faq">
+    <div class="wrap faq-grid" id="faqGrid">
+      <div class="faq-intro" id="faqIntro">
+        <div class="eyebrow">GOOD TO KNOW</div>
+        <h2>Pet-parent<br>questions.</h2>
+        <p>Wondering about a service, walk-ins, or hours? Here's a quick start. Call us for the latest availability.</p>
+        <a class="btn-yellow magnetic" href="tel:+17738788400">Ask us directly <span class="btn-arrow-icon">↗</span></a>
+        <div class="faq-decoration">🐾 🐾</div>
+      </div>
+
+      <div class="faq-list" id="faqList">
+        <details open>
+          <summary>Do you groom both dogs and cats?<span>＋</span></summary>
+          <p>Yes. Services include dog haircuts and styling, cat grooming, brushing, mat removal, and bath options. Call to discuss your pet's needs.</p>
+        </details>
+        <details>
+          <summary>Can I walk in for a nail trim?<span>＋</span></summary>
+          <p>Walk-in nail trimming and grinding may be available. Call ahead to confirm availability and wait times.</p>
+        </details>
+        <details>
+          <summary>What are your opening hours?<span>＋</span></summary>
+          <p>Monday through Saturday, 9:00 AM–5:00 PM. Closed Sundays.</p>
+        </details>
+        <details>
+          <summary>How do I book an appointment?<span>＋</span></summary>
+          <p>Booking is currently by phone. Call (773) 878-8400 to ask about appointment availability, services, and pricing.</p>
+        </details>
+        <details>
+          <summary>Where are you located?<span>＋</span></summary>
+          <p>1712 W Lawrence Ave, Chicago, IL 60640, in the Uptown / Ravenswood area.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="final-cta" id="contact">
+    <div class="wrap cta-row" id="ctaRow">
+      <div>
+        <h2>Let's get that tail<br>doing the helicopter. 🐕</h2>
+        <p>Call Uptown Pet Salon to talk services, availability, and pricing. 1712 W Lawrence Ave, Chicago, IL 60640 · Mon–Sat, 9 AM–5 PM · Closed Sunday.</p>
+      </div>
+      <div class="cta-buttons">
+        <a class="btn-dark magnetic" href="tel:+17738788400">☎ &nbsp; (773) 878-8400</a>
+        <a class="btn-yellow magnetic" href="https://www.google.com/maps/search/Uptown+Pet+Salon+Chicago+IL" target="_blank" rel="noopener">Get Directions <span class="btn-arrow-icon">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a class="brand" href="#home" style="color:white;">
+            <span class="brand-mark magnetic">🐾</span>
+            <span class="brand-text">
+              <span>Uptown</span>
+              <small style="color:#a8b4c7;">PET SALON · CHICAGO</small>
+            </span>
+          </a>
+          <p>Dog and cat grooming with a little extra love. Proud to be part of the Uptown neighborhood since 2006.</p>
+          <div class="socials">
+            <a href="https://facebook.com/uptownpetsalon" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+            <a href="https://www.google.com/maps/search/Uptown+Pet+Salon+Chicago+IL" target="_blank" rel="noopener" aria-label="Google Maps">⌖</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Take a Look</h4>
+          <div class="footer-links">
+            <a href="#services">Services</a>
+            <a href="#about">Our Story</a>
+            <a href="#gallery">Happy Tails</a>
+            <a href="#packages">Grooming Menu</a>
+            <a href="#faq">FAQs</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Care Menu</h4>
+          <div class="footer-links">
+            <a href="#services">Dog Haircuts</a>
+            <a href="#services">Cat Grooming</a>
+            <a href="#services">Baths & Blow-Drys</a>
+            <a href="#services">Nail Care</a>
+            <a href="#services">Hygiene Care</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Come Say Hi</h4>
+          <div class="footer-links">
+            <span>1712 W Lawrence Ave</span>
+            <span>Chicago, IL 60640</span>
+            <a href="tel:+17738788400">(773) 878-8400</a>
+            <span>Mon–Sat: 9 AM–5 PM</span>
+            <span>Sunday: Closed</span>
+            <a href="https://www.google.com/maps/search/Uptown+Pet+Salon+Chicago+IL" target="_blank" rel="noopener">Directions ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Uptown Pet Salon. All rights reserved.</span>
+        <span>Made for the furry family. 🐾</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast & Mobile Fixed Bar -->
+  <div class="toast" id="toast">Opening your phone app…</div>
+  <div class="mobile-book" id="mobileBook">
+    <span><strong>Ready for a fresh look?</strong>Uptown Pet Salon · Chicago</span>
+    <a href="tel:+17738788400">Call to Book ↗</a>
+  </div>
+
+</div>
+
+<!-- GSAP Animation Engine -->
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  // Mobile menu toggle
+  const menu = document.getElementById('menu');
+  const links = document.getElementById('navlinks');
+  if (menu && links) {
+    menu.addEventListener('click', () => {
+      links.classList.toggle('open');
+      menu.textContent = links.classList.contains('open') ? '×' : '☰';
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      links.classList.remove('open');
+      menu.textContent = '☰';
+    }));
+  }
+
+  // Footer Year
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Mobile persistent booking bar
+  const mobileBook = document.getElementById('mobileBook');
+  let lastY = 0;
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 720 && mobileBook) {
+      const shouldShow = window.scrollY > 500 && window.scrollY > lastY - 6;
+      mobileBook.classList.toggle('show', shouldShow);
+      if (window.scrollY < 300) mobileBook.classList.remove('show');
+    }
+    lastY = window.scrollY;
+  }, { passive: true });
+
+  // Call click toast
+  document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+    a.addEventListener('click', () => {
+      const t = document.getElementById('toast');
+      if (t) {
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 1500);
+      }
+    });
+  });
+
+  // Interactive Click Sparks / Floating Paws
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.service-card') || e.target.closest('.process-card') || e.target.closest('.package') || e.target.closest('.hero-art')) {
+      const spark = document.createElement('div');
+      spark.className = 'click-spark';
+      spark.textContent = ['🐾', '✨', '💛', '✦', '🐶', '✂️'][Math.floor(Math.random() * 6)];
+      spark.style.left = `${e.pageX}px`;
+      spark.style.top = `${e.pageY}px`;
+      document.body.appendChild(spark);
+
+      gsap.to(spark, {
+        y: '-=45',
+        x: (Math.random() - 0.5) * 40,
+        scale: 1.45,
+        opacity: 0,
+        rotation: (Math.random() - 0.5) * 50,
+        duration: 0.8,
+        ease: 'power2.out',
+        onComplete: () => spark.remove()
+      });
+    }
+  });
+
+  // Check reduced motion
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced || typeof gsap === 'undefined') {
+    return;
+  }
+
+  // Register GSAP plugins
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ==========================================================
+     1. HERO TIMELINE (Entrance Sequence)
+  ========================================================== */
+  const heroTL = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+  // Set initial states to avoid FOUC
+  gsap.set('#topNav', { y: -30, opacity: 0 });
+  gsap.set('#heroPill', { scale: 0.85, opacity: 0, y: 15 });
+  gsap.set('#heroTitle', { y: 35, opacity: 0 });
+  gsap.set('#highlightBar', { scaleX: 0 });
+  gsap.set('#heroText', { y: 25, opacity: 0 });
+  gsap.set('#heroActions > *', { y: 20, opacity: 0 });
+  gsap.set('#heroTrust', { y: 20, opacity: 0 });
+  gsap.set('.faces img', { scale: 0.4, opacity: 0 });
+
+  gsap.set('#heroBlob', { scale: 0.65, opacity: 0, rotation: -10 });
+  gsap.set('#heroMainPhoto', { y: 45, opacity: 0, rotation: -2 });
+  gsap.set('#heroCat', { scale: 0.5, opacity: 0, rotation: -20 });
+  gsap.set('#heroPup', { scale: 0.5, opacity: 0, rotation: 22 });
+  gsap.set('#heroSticker', { scale: 1.8, opacity: 0, rotation: 35 });
+  gsap.set('.paw-doodle', { scale: 0, opacity: 0 });
+  gsap.set('#heroCaption', { y: 25, opacity: 0, rotation: -12 });
+
+  heroTL
+    // Nav bar slides in
+    .to('#topNav', { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out' })
+    // Pill pops in with bounce
+    .to('#heroPill', { scale: 1, opacity: 1, y: 0, duration: 0.55, ease: 'back.out(2)' }, '-=0.4')
+    // Hero Title
+    .to('#heroTitle', { y: 0, opacity: 1, duration: 0.75, ease: 'power4.out' }, '-=0.35')
+    // Yellow Highlight marker expands smoothly
+    .to('#highlightBar', { scaleX: 1, duration: 0.6, ease: 'power2.out' }, '-=0.25')
+    // Hero Text
+    .to('#heroText', { y: 0, opacity: 1, duration: 0.6 }, '-=0.35')
+    // Actions & Trust
+    .to('#heroActions > *', { y: 0, opacity: 1, stagger: 0.1, duration: 0.55 }, '-=0.35')
+    .to('#heroTrust', { y: 0, opacity: 1, duration: 0.5 }, '-=0.3')
+    .to('.faces img', { scale: 1, opacity: 1, stagger: 0.08, duration: 0.5, ease: 'back.out(2.2)' }, '-=0.35')
+    // Hero Art Sequence (Pushed up high)
+    .to('#heroBlob', { scale: 1, opacity: 1, rotation: 5, duration: 0.85, ease: 'elastic.out(1, 0.75)' }, '-=1.1')
+    .to('#heroMainPhoto', { y: 0, opacity: 1, rotation: 2, duration: 0.8, ease: 'power3.out' }, '-=0.85')
+    .to('#heroCat', { scale: 1, opacity: 1, rotation: -9, duration: 0.65, ease: 'back.out(1.8)' }, '-=0.6')
+    .to('#heroPup', { scale: 1, opacity: 1, rotation: 8, duration: 0.65, ease: 'back.out(1.8)' }, '-=0.55')
+    .to('#heroSticker', { scale: 1, opacity: 1, rotation: -13, duration: 0.65, ease: 'back.out(2.2)' }, '-=0.5')
+    .to('.paw-doodle', { scale: 1, opacity: 1, stagger: 0.1, duration: 0.5, ease: 'back.out(2.5)' }, '-=0.4')
+    .to('#heroCaption', { y: 0, opacity: 1, rotation: -3, duration: 0.55, ease: 'back.out(2)' }, '-=0.35');
+
+  /* ==========================================================
+     2. CONTINUOUS FLOATING IDLE ANIMATIONS
+  ========================================================== */
+  gsap.to('#heroCat', {
+    y: '-=10',
+    rotation: '-=2.5',
+    duration: 3.2,
+    yoyo: true,
+    repeat: -1,
+    ease: 'sine.inOut',
+    delay: 1.2
+  });
+
+  gsap.to('#heroPup', {
+    y: '+=10',
+    rotation: '+=2.5',
+    duration: 2.8,
+    yoyo: true,
+    repeat: -1,
+    ease: 'sine.inOut',
+    delay: 1.4
+  });
+
+  gsap.to('#heroSticker', {
+    rotation: '+=7',
+    y: '-=6',
+    duration: 3.6,
+    yoyo: true,
+    repeat: -1,
+    ease: 'sine.inOut',
+    delay: 1.6
+  });
+
+  gsap.to('.paw-doodle.pd1', {
+    y: '-=12',
+    rotation: 15,
+    duration: 2.5,
+    yoyo: true,
+    repeat: -1,
+    ease: 'sine.inOut'
+  });
+
+  gsap.to('.paw-doodle.pd2', {
+    y: '+=10',
+    rotation: -25,
+    duration: 3,
+    yoyo: true,
+    repeat: -1,
+    ease: 'sine.inOut',
+    delay: 0.5
+  });
+
+  gsap.to('.paw-doodle.pd3', {
+    y: '-=8',
+    rotation: -10,
+    duration: 2.7,
+    yoyo: true,
+    repeat: -1,
+    ease: 'sine.inOut',
+    delay: 0.8
+  });
+
+  /* ==========================================================
+     3. $10,000 STUDIO 3D CARD TILT & SPOTLIGHT EFFECTS
+  ========================================================== */
+  if (window.innerWidth > 960) {
+    const tiltCards = document.querySelectorAll('.tilt-card');
+    tiltCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        // Set spotlight coordinates
+        card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
+        card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -8;
+        const rotateY = ((x - centerX) / centerX) * 8;
+
+        gsap.to(card, {
+          rotateX: rotateX,
+          rotateY: rotateY,
+          transformPerspective: 1000,
+          duration: 0.25,
+          ease: 'power1.out',
+          overwrite: 'auto'
+        });
+      });
+
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          rotateX: 0,
+          rotateY: 0,
+          duration: 0.65,
+          ease: 'elastic.out(1.1, 0.4)',
+          overwrite: 'auto'
+        });
+      });
+    });
+
+    // Magnetic buttons
+    const magneticItems = document.querySelectorAll('.magnetic');
+    magneticItems.forEach(el => {
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        const relX = e.clientX - rect.left - rect.width / 2;
+        const relY = e.clientY - rect.top - rect.height / 2;
+
+        gsap.to(el, {
+          x: relX * 0.35,
+          y: relY * 0.35,
+          duration: 0.3,
+          ease: 'power2.out',
+          overwrite: 'auto'
+        });
+      });
+
+      el.addEventListener('mouseleave', () => {
+        gsap.to(el, {
+          x: 0,
+          y: 0,
+          duration: 0.7,
+          ease: 'elastic.out(1.2, 0.35)',
+          overwrite: 'auto'
+        });
+      });
+    });
+
+    // Interactive Hero Parallax
+    const heroSection = document.getElementById('home');
+    if (heroSection) {
+      const setBlobX = gsap.quickTo('#heroBlob', 'x', { duration: 0.7, ease: 'power2.out' });
+      const setBlobY = gsap.quickTo('#heroBlob', 'y', { duration: 0.7, ease: 'power2.out' });
+      const setMainX = gsap.quickTo('#heroMainPhoto', 'x', { duration: 0.6, ease: 'power2.out' });
+      const setMainY = gsap.quickTo('#heroMainPhoto', 'y', { duration: 0.6, ease: 'power2.out' });
+      const setCatX = gsap.quickTo('#heroCat', 'x', { duration: 0.5, ease: 'power2.out' });
+      const setCatY = gsap.quickTo('#heroCat', 'y', { duration: 0.5, ease: 'power2.out' });
+      const setPupX = gsap.quickTo('#heroPup', 'x', { duration: 0.5, ease: 'power2.out' });
+      const setPupY = gsap.quickTo('#heroPup', 'y', { duration: 0.5, ease: 'power2.out' });
+      const setStickerX = gsap.quickTo('#heroSticker', 'x', { duration: 0.45, ease: 'power2.out' });
+      const setStickerY = gsap.quickTo('#heroSticker', 'y', { duration: 0.45, ease: 'power2.out' });
+
+      heroSection.addEventListener('mousemove', (e) => {
+        const rect = heroSection.getBoundingClientRect();
+        const normX = (e.clientX - rect.left) / rect.width - 0.5;
+        const normY = (e.clientY - rect.top) / rect.height - 0.5;
+
+        setBlobX(normX * 18);
+        setBlobY(normY * 18);
+        setMainX(normX * 28);
+        setMainY(normY * 24);
+        setCatX(normX * -22);
+        setCatY(normY * -18);
+        setPupX(normX * 36);
+        setPupY(normY * 30);
+        setStickerX(normX * -30);
+        setStickerY(normY * -24);
+      });
+
+      heroSection.addEventListener('mouseleave', () => {
+        setBlobX(0); setBlobY(0);
+        setMainX(0); setMainY(0);
+        setCatX(0); setCatY(0);
+        setPupX(0); setPupY(0);
+        setStickerX(0); setStickerY(0);
+      });
+    }
+  }
+
+  /* ==========================================================
+     4. MARQUEE SMOOTH ACCELERATION ON SCROLL
+  ========================================================== */
+  const marqueeTrack = document.getElementById('marqueeTrack');
+  if (marqueeTrack) {
+    let marqueeTween = gsap.to(marqueeTrack, {
+      xPercent: -50,
+      ease: 'none',
+      duration: 22,
+      repeat: -1
+    });
+
+    ScrollTrigger.create({
+      trigger: '#marqueeBanner',
+      onUpdate: (self) => {
+        const speed = 1 + Math.min(Math.abs(self.getVelocity() / 300), 3.5);
+        gsap.to(marqueeTween, { timeScale: speed, duration: 0.3, overwrite: 'auto' });
+      }
+    });
+  }
+
+  /* ==========================================================
+     5. SECTION HEADERS REVEAL
+  ========================================================== */
+  gsap.utils.toArray('.gsap-header').forEach(header => {
+    gsap.from(header.children, {
+      scrollTrigger: {
+        trigger: header,
+        start: 'top 85%',
+        toggleActions: 'play none none none'
+      },
+      y: 35,
+      opacity: 0,
+      stagger: 0.12,
+      duration: 0.75,
+      ease: 'power3.out'
+    });
+  });
+
+  /* ==========================================================
+     6. SERVICES CARDS STAGGER & HOVER
+  ========================================================== */
+  const serviceCards = gsap.utils.toArray('.service-card');
+  if (serviceCards.length) {
+    gsap.from(serviceCards, {
+      scrollTrigger: {
+        trigger: '#serviceGrid',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      },
+      y: 55,
+      opacity: 0,
+      stagger: 0.1,
+      duration: 0.75,
+      ease: 'power3.out'
+    });
+
+    gsap.from('#serviceCta', {
+      scrollTrigger: {
+        trigger: '#serviceCta',
+        start: 'top 88%',
+        toggleActions: 'play none none none'
+      },
+      y: 30,
+      opacity: 0,
+      duration: 0.6,
+      ease: 'power3.out'
+    });
+  }
+
+  /* ==========================================================
+     7. STATS CARDS & ANIMATED NUMBER COUNTERS
+  ========================================================== */
+  const statCards = gsap.utils.toArray('.stat');
+  if (statCards.length) {
+    gsap.from(statCards, {
+      scrollTrigger: {
+        trigger: '#statsGrid',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      },
+      scale: 0.88,
+      y: 45,
+      opacity: 0,
+      stagger: 0.12,
+      duration: 0.8,
+      ease: 'back.out(1.5)'
+    });
+
+    document.querySelectorAll('.stat-counter').forEach(counter => {
+      const target = parseFloat(counter.getAttribute('data-target'));
+      const isDecimal = counter.getAttribute('data-decimal') === '1';
+      
+      const countObj = { val: 0 };
+      gsap.to(countObj, {
+        scrollTrigger: {
+          trigger: counter,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        val: target,
+        duration: 2.2,
+        ease: 'power2.out',
+        onUpdate: () => {
+          counter.textContent = isDecimal ? countObj.val.toFixed(1) : Math.floor(countObj.val);
+        }
+      });
+    });
+  }
+
+  /* ==========================================================
+     8. OUR STORY (Visual + Copy + Checklist Stagger)
+  ========================================================== */
+  const storyGrid = document.getElementById('storyGrid');
+  if (storyGrid) {
+    const storyTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: storyGrid,
+        start: 'top 75%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    storyTL
+      .from('.story-photo.big', {
+        x: -50,
+        rotation: -8,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+      })
+      .from('.story-photo.small', {
+        x: 40,
+        rotation: 12,
+        opacity: 0,
+        duration: 0.75,
+        ease: 'back.out(1.6)'
+      }, '-=0.5')
+      .from('.story-bubble', {
+        scale: 0.6,
+        opacity: 0,
+        rotation: -10,
+        duration: 0.6,
+        ease: 'back.out(2.2)'
+      }, '-=0.4')
+      .from('.story-copy > *', {
+        x: 35,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.7,
+        ease: 'power3.out'
+      }, '-=0.6')
+      .from('#storyChecklist .check', {
+        x: 20,
+        opacity: 0,
+        stagger: 0.08,
+        duration: 0.5,
+        ease: 'power2.out'
+      }, '-=0.4');
+
+    gsap.to('.story-photo.big', {
+      scrollTrigger: {
+        trigger: storyGrid,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1.5
+      },
+      y: -25
+    });
+
+    gsap.to('.story-photo.small', {
+      scrollTrigger: {
+        trigger: storyGrid,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 2
+      },
+      y: 20
+    });
+  }
+
+  /* ==========================================================
+     9. PROCESS STEPS (Dynamic tilt & emoji bounce)
+  ========================================================== */
+  const processCards = gsap.utils.toArray('.process-card');
+  if (processCards.length) {
+    const processTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#processGrid',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    processTL.from(processCards, {
+      y: 60,
+      opacity: 0,
+      rotation: (i) => [-2.5, 0, 2.5][i] || 0,
+      stagger: 0.14,
+      duration: 0.8,
+      ease: 'power3.out'
+    });
+
+    processCards.forEach(card => {
+      const emoji = card.querySelector('.process-emoji');
+      if (emoji) {
+        gsap.from(emoji, {
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 75%',
+            toggleActions: 'play none none none'
+          },
+          scale: 0.4,
+          rotation: 20,
+          duration: 0.6,
+          delay: 0.2,
+          ease: 'back.out(2.5)'
+        });
+      }
+    });
+  }
+
+  /* ==========================================================
+     10. GALLERY (Staggered Tile Reveals + Tag Stamps)
+  ========================================================== */
+  const galleryGrid = document.getElementById('galleryGrid');
+  if (galleryGrid) {
+    const galleryItems = gsap.utils.toArray('#galleryGrid > *');
+    gsap.from(galleryItems, {
+      scrollTrigger: {
+        trigger: galleryGrid,
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      },
+      scale: 0.92,
+      y: 40,
+      opacity: 0,
+      stagger: 0.1,
+      duration: 0.75,
+      ease: 'power3.out'
+    });
+
+    document.querySelectorAll('.gallery-tag').forEach(tag => {
+      gsap.from(tag, {
+        scrollTrigger: {
+          trigger: tag,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        scale: 0.5,
+        opacity: 0,
+        duration: 0.5,
+        ease: 'back.out(2)'
+      });
+    });
+  }
+
+  /* ==========================================================
+     11. PACKAGES (Pricing Cards with Featured Pop)
+  ========================================================== */
+  const packageCards = gsap.utils.toArray('.package');
+  if (packageCards.length) {
+    const packageTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#packageGrid',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    packageTL
+      .from('.package:not(.featured)', {
+        y: 45,
+        opacity: 0,
+        stagger: 0.12,
+        duration: 0.75,
+        ease: 'power3.out'
+      })
+      .from('.package.featured', {
+        scale: 0.9,
+        y: 60,
+        opacity: 0,
+        duration: 0.85,
+        ease: 'back.out(1.6)'
+      }, '-=0.5');
+  }
+
+  /* ==========================================================
+     12. FAQ (Intro & Staggered Accordion Items)
+  ========================================================== */
+  const faqGrid = document.getElementById('faqGrid');
+  if (faqGrid) {
+    gsap.from('#faqIntro', {
+      scrollTrigger: {
+        trigger: faqGrid,
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      },
+      x: -40,
+      opacity: 0,
+      duration: 0.75,
+      ease: 'power3.out'
+    });
+
+    gsap.from('#faqList details', {
+      scrollTrigger: {
+        trigger: '#faqList',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      },
+      x: 35,
+      opacity: 0,
+      stagger: 0.08,
+      duration: 0.65,
+      ease: 'power3.out'
+    });
+  }
+
+  /* ==========================================================
+     13. FINAL CTA (Impact Scale & Button Pop)
+  ========================================================== */
+  const ctaRow = document.getElementById('ctaRow');
+  if (ctaRow) {
+    gsap.from(ctaRow, {
+      scrollTrigger: {
+        trigger: '#contact',
+        start: 'top 82%',
+        toggleActions: 'play none none none'
+      },
+      scale: 0.94,
+      y: 35,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power3.out'
+    });
+  }
+
+  /* ==========================================================
+     14. FOOTER (Staggered Column Entrance)
+  ========================================================== */
+  const footerGrid = document.querySelector('.footer-grid');
+  if (footerGrid) {
+    gsap.from(footerGrid.children, {
+      scrollTrigger: {
+        trigger: footerGrid,
+        start: 'top 90%',
+        toggleActions: 'play none none none'
+      },
+      y: 30,
+      opacity: 0,
+      stagger: 0.1,
+      duration: 0.65,
+      ease: 'power3.out'
+    });
+  }
+
+  // Refresh ScrollTrigger after images load
+  window.addEventListener('load', () => {
+    ScrollTrigger.refresh();
+  });
+});
+</script>
+
+</body>
+</html>
