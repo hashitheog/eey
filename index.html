@@ -2687,13 +2687,13 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
         <div class="ba-container" id="baContainer" style="--pos: 50%;">
           <!-- AFTER IMAGE (Underneath) -->
           <div class="ba-image-wrapper ba-after">
-            <img id="baAfterImg" src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1200&q=90" alt="Freshly groomed happy pet">
+            <img id="baAfterImg" src="assets/teddy_after.jpg" alt="Teddy freshly groomed and fluffed">
             <span class="ba-badge after-badge">AFTER · SO FETCH! ✨</span>
           </div>
 
           <!-- BEFORE IMAGE (Clipped on top) -->
           <div class="ba-image-wrapper ba-before">
-            <img id="baBeforeImg" src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&q=85" alt="Scruffy pet before grooming">
+            <img id="baBeforeImg" src="assets/teddy_before.jpg" alt="Teddy scruffy before grooming">
             <span class="ba-badge before-badge">BEFORE · SCRUFFY FLOOF 🐾</span>
           </div>
 
@@ -3213,20 +3213,20 @@ window.addEventListener('DOMContentLoaded', () => {
     {
       name: 'Teddy · Miniature Goldendoodle',
       story: 'Arrived with dense matting and overgrown curls. Received our Full Fetch bath, blueberry facial, gentle de-matting, and teddy bear cut!',
-      before: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&q=85',
-      after: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1200&q=90'
+      before: 'assets/teddy_before.jpg',
+      after: 'assets/teddy_after.jpg'
     },
     {
       name: 'Luna · Persian Cat',
       story: 'Heavy undercoat shedding and belly mats. Received a gentle calming comb-out, sanitary trim, and plush spa conditioning.',
-      before: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1200&q=85',
-      after: 'https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=1200&q=85'
+      before: 'assets/luna_before.jpg',
+      after: 'assets/luna_after.jpg'
     },
     {
       name: 'Milo · Yorkshire Terrier',
       story: 'Needed an urgent summer refresh! Styled with a neat puppy contour cut, ear tassels, paw pad grooming, and fresh bandana.',
-      before: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=1200&q=85',
-      after: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=85'
+      before: 'assets/milo_before.jpg',
+      after: 'assets/milo_after.jpg'
     }
   ];
 
@@ -3266,9 +3266,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
         // Animate image transition
         gsap.to([baBeforeImg, baAfterImg], {
-          opacity: 0.3,
-          scale: 0.98,
-          duration: 0.2,
+          opacity: 0.35,
+          scale: 0.99,
+          duration: 0.14,
           onComplete: () => {
             baBeforeImg.src = data.before;
             baAfterImg.src = data.after;
@@ -3279,7 +3279,7 @@ window.addEventListener('DOMContentLoaded', () => {
             gsap.to([baBeforeImg, baAfterImg], {
               opacity: 1,
               scale: 1,
-              duration: 0.35,
+              duration: 0.22,
               ease: 'power2.out'
             });
           }
@@ -3338,51 +3338,51 @@ window.addEventListener('DOMContentLoaded', () => {
   gsap.registerPlugin(ScrollTrigger);
 
   /* ==========================================================
-     1. HERO TIMELINE (Entrance Sequence)
+     1. HERO TIMELINE (Entrance Sequence - Fast & Punchy)
   ========================================================== */
   const heroTL = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
   // Set initial states to avoid FOUC
-  gsap.set('#topNav', { y: -30, opacity: 0 });
-  gsap.set('#heroPill', { scale: 0.85, opacity: 0, y: 15 });
-  gsap.set('#heroTitle', { y: 35, opacity: 0 });
+  gsap.set('#topNav', { y: -20, opacity: 0 });
+  gsap.set('#heroPill', { scale: 0.9, opacity: 0, y: 10 });
+  gsap.set('#heroTitle', { y: 24, opacity: 0 });
   gsap.set('#highlightBar', { scaleX: 0 });
-  gsap.set('#heroText', { y: 25, opacity: 0 });
-  gsap.set('#heroActions > *', { y: 20, opacity: 0 });
-  gsap.set('#heroTrust', { y: 20, opacity: 0 });
-  gsap.set('.faces img', { scale: 0.4, opacity: 0 });
+  gsap.set('#heroText', { y: 16, opacity: 0 });
+  gsap.set('#heroActions > *', { y: 14, opacity: 0 });
+  gsap.set('#heroTrust', { y: 14, opacity: 0 });
+  gsap.set('.faces img', { scale: 0.5, opacity: 0 });
 
-  gsap.set('#heroBlob', { scale: 0.65, opacity: 0, rotation: -10 });
-  gsap.set('#heroMainPhoto', { y: 45, opacity: 0, rotation: -2 });
-  gsap.set('#heroCat', { scale: 0.5, opacity: 0, rotation: -20 });
-  gsap.set('#heroPup', { scale: 0.5, opacity: 0, rotation: 22 });
-  gsap.set('#heroSticker', { scale: 1.8, opacity: 0, rotation: 35 });
+  gsap.set('#heroBlob', { scale: 0.75, opacity: 0, rotation: -8 });
+  gsap.set('#heroMainPhoto', { y: 30, opacity: 0, rotation: -1.5 });
+  gsap.set('#heroCat', { scale: 0.6, opacity: 0, rotation: -15 });
+  gsap.set('#heroPup', { scale: 0.6, opacity: 0, rotation: 16 });
+  gsap.set('#heroSticker', { scale: 1.4, opacity: 0, rotation: 25 });
   gsap.set('.paw-doodle', { scale: 0, opacity: 0 });
-  gsap.set('#heroCaption', { y: 25, opacity: 0, rotation: -12 });
+  gsap.set('#heroCaption', { y: 18, opacity: 0, rotation: -8 });
 
   heroTL
-    // Nav bar slides in
-    .to('#topNav', { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out' })
-    // Pill pops in with bounce
-    .to('#heroPill', { scale: 1, opacity: 1, y: 0, duration: 0.55, ease: 'back.out(2)' }, '-=0.4')
+    // Nav bar slides in quickly
+    .to('#topNav', { y: 0, opacity: 1, duration: 0.42, ease: 'power2.out' })
+    // Pill pops in
+    .to('#heroPill', { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: 'back.out(2)' }, '-=0.28')
     // Hero Title
-    .to('#heroTitle', { y: 0, opacity: 1, duration: 0.75, ease: 'power4.out' }, '-=0.35')
-    // Yellow Highlight marker expands smoothly
-    .to('#highlightBar', { scaleX: 1, duration: 0.6, ease: 'power2.out' }, '-=0.25')
+    .to('#heroTitle', { y: 0, opacity: 1, duration: 0.45, ease: 'power3.out' }, '-=0.22')
+    // Yellow Highlight marker expands
+    .to('#highlightBar', { scaleX: 1, duration: 0.38, ease: 'power2.out' }, '-=0.2')
     // Hero Text
-    .to('#heroText', { y: 0, opacity: 1, duration: 0.6 }, '-=0.35')
+    .to('#heroText', { y: 0, opacity: 1, duration: 0.35 }, '-=0.22')
     // Actions & Trust
-    .to('#heroActions > *', { y: 0, opacity: 1, stagger: 0.1, duration: 0.55 }, '-=0.35')
-    .to('#heroTrust', { y: 0, opacity: 1, duration: 0.5 }, '-=0.3')
-    .to('.faces img', { scale: 1, opacity: 1, stagger: 0.08, duration: 0.5, ease: 'back.out(2.2)' }, '-=0.35')
-    // Hero Art Sequence (Pushed up high)
-    .to('#heroBlob', { scale: 1, opacity: 1, rotation: 5, duration: 0.85, ease: 'elastic.out(1, 0.75)' }, '-=1.1')
-    .to('#heroMainPhoto', { y: 0, opacity: 1, rotation: 2, duration: 0.8, ease: 'power3.out' }, '-=0.85')
-    .to('#heroCat', { scale: 1, opacity: 1, rotation: -9, duration: 0.65, ease: 'back.out(1.8)' }, '-=0.6')
-    .to('#heroPup', { scale: 1, opacity: 1, rotation: 8, duration: 0.65, ease: 'back.out(1.8)' }, '-=0.55')
-    .to('#heroSticker', { scale: 1, opacity: 1, rotation: -13, duration: 0.65, ease: 'back.out(2.2)' }, '-=0.5')
-    .to('.paw-doodle', { scale: 1, opacity: 1, stagger: 0.1, duration: 0.5, ease: 'back.out(2.5)' }, '-=0.4')
-    .to('#heroCaption', { y: 0, opacity: 1, rotation: -3, duration: 0.55, ease: 'back.out(2)' }, '-=0.35');
+    .to('#heroActions > *', { y: 0, opacity: 1, stagger: 0.05, duration: 0.35 }, '-=0.25')
+    .to('#heroTrust', { y: 0, opacity: 1, duration: 0.3 }, '-=0.2')
+    .to('.faces img', { scale: 1, opacity: 1, stagger: 0.04, duration: 0.32, ease: 'back.out(2)' }, '-=0.25')
+    // Hero Art Sequence
+    .to('#heroBlob', { scale: 1, opacity: 1, rotation: 5, duration: 0.52, ease: 'back.out(1.5)' }, '-=0.6')
+    .to('#heroMainPhoto', { y: 0, opacity: 1, rotation: 2, duration: 0.48, ease: 'power3.out' }, '-=0.42')
+    .to('#heroCat', { scale: 1, opacity: 1, rotation: -9, duration: 0.4, ease: 'back.out(1.8)' }, '-=0.35')
+    .to('#heroPup', { scale: 1, opacity: 1, rotation: 8, duration: 0.4, ease: 'back.out(1.8)' }, '-=0.32')
+    .to('#heroSticker', { scale: 1, opacity: 1, rotation: -13, duration: 0.42, ease: 'back.out(2)' }, '-=0.28')
+    .to('.paw-doodle', { scale: 1, opacity: 1, stagger: 0.05, duration: 0.32, ease: 'back.out(2.2)' }, '-=0.25')
+    .to('#heroCaption', { y: 0, opacity: 1, rotation: -3, duration: 0.35, ease: 'back.out(1.8)' }, '-=0.2');
 
   /* ==========================================================
      2. CONTINUOUS FLOATING IDLE ANIMATIONS
@@ -3394,7 +3394,7 @@ window.addEventListener('DOMContentLoaded', () => {
     yoyo: true,
     repeat: -1,
     ease: 'sine.inOut',
-    delay: 1.2
+    delay: 0.6
   });
 
   gsap.to('#heroPup', {
@@ -3404,7 +3404,7 @@ window.addEventListener('DOMContentLoaded', () => {
     yoyo: true,
     repeat: -1,
     ease: 'sine.inOut',
-    delay: 1.4
+    delay: 0.7
   });
 
   gsap.to('#heroSticker', {
@@ -3414,7 +3414,7 @@ window.addEventListener('DOMContentLoaded', () => {
     yoyo: true,
     repeat: -1,
     ease: 'sine.inOut',
-    delay: 1.6
+    delay: 0.8
   });
 
   gsap.to('.paw-doodle.pd1', {
@@ -3433,7 +3433,7 @@ window.addEventListener('DOMContentLoaded', () => {
     yoyo: true,
     repeat: -1,
     ease: 'sine.inOut',
-    delay: 0.5
+    delay: 0.3
   });
 
   gsap.to('.paw-doodle.pd3', {
@@ -3443,11 +3443,11 @@ window.addEventListener('DOMContentLoaded', () => {
     yoyo: true,
     repeat: -1,
     ease: 'sine.inOut',
-    delay: 0.8
+    delay: 0.5
   });
 
   /* ==========================================================
-     3. 3D CARD TILT & SPOTLIGHT EFFECTS
+     3. 3D CARD TILT & SPOTLIGHT EFFECTS (Responsive & Snappy)
   ========================================================== */
   if (window.innerWidth > 960) {
     const tiltCards = document.querySelectorAll('.tilt-card');
@@ -3469,7 +3469,7 @@ window.addEventListener('DOMContentLoaded', () => {
           rotateX: rotateX,
           rotateY: rotateY,
           transformPerspective: 1000,
-          duration: 0.25,
+          duration: 0.2,
           ease: 'power1.out',
           overwrite: 'auto'
         });
@@ -3479,8 +3479,8 @@ window.addEventListener('DOMContentLoaded', () => {
         gsap.to(card, {
           rotateX: 0,
           rotateY: 0,
-          duration: 0.65,
-          ease: 'elastic.out(1.1, 0.4)',
+          duration: 0.35,
+          ease: 'back.out(1.4)',
           overwrite: 'auto'
         });
       });
@@ -3497,7 +3497,7 @@ window.addEventListener('DOMContentLoaded', () => {
         gsap.to(el, {
           x: relX * 0.35,
           y: relY * 0.35,
-          duration: 0.3,
+          duration: 0.22,
           ease: 'power2.out',
           overwrite: 'auto'
         });
@@ -3507,8 +3507,8 @@ window.addEventListener('DOMContentLoaded', () => {
         gsap.to(el, {
           x: 0,
           y: 0,
-          duration: 0.7,
-          ease: 'elastic.out(1.2, 0.35)',
+          duration: 0.35,
+          ease: 'back.out(1.5)',
           overwrite: 'auto'
         });
       });
@@ -3517,16 +3517,16 @@ window.addEventListener('DOMContentLoaded', () => {
     // Interactive Hero Parallax
     const heroSection = document.getElementById('home');
     if (heroSection) {
-      const setBlobX = gsap.quickTo('#heroBlob', 'x', { duration: 0.7, ease: 'power2.out' });
-      const setBlobY = gsap.quickTo('#heroBlob', 'y', { duration: 0.7, ease: 'power2.out' });
-      const setMainX = gsap.quickTo('#heroMainPhoto', 'x', { duration: 0.6, ease: 'power2.out' });
-      const setMainY = gsap.quickTo('#heroMainPhoto', 'y', { duration: 0.6, ease: 'power2.out' });
-      const setCatX = gsap.quickTo('#heroCat', 'x', { duration: 0.5, ease: 'power2.out' });
-      const setCatY = gsap.quickTo('#heroCat', 'y', { duration: 0.5, ease: 'power2.out' });
-      const setPupX = gsap.quickTo('#heroPup', 'x', { duration: 0.5, ease: 'power2.out' });
-      const setPupY = gsap.quickTo('#heroPup', 'y', { duration: 0.5, ease: 'power2.out' });
-      const setStickerX = gsap.quickTo('#heroSticker', 'x', { duration: 0.45, ease: 'power2.out' });
-      const setStickerY = gsap.quickTo('#heroSticker', 'y', { duration: 0.45, ease: 'power2.out' });
+      const setBlobX = gsap.quickTo('#heroBlob', 'x', { duration: 0.45, ease: 'power2.out' });
+      const setBlobY = gsap.quickTo('#heroBlob', 'y', { duration: 0.45, ease: 'power2.out' });
+      const setMainX = gsap.quickTo('#heroMainPhoto', 'x', { duration: 0.4, ease: 'power2.out' });
+      const setMainY = gsap.quickTo('#heroMainPhoto', 'y', { duration: 0.4, ease: 'power2.out' });
+      const setCatX = gsap.quickTo('#heroCat', 'x', { duration: 0.35, ease: 'power2.out' });
+      const setCatY = gsap.quickTo('#heroCat', 'y', { duration: 0.35, ease: 'power2.out' });
+      const setPupX = gsap.quickTo('#heroPup', 'x', { duration: 0.35, ease: 'power2.out' });
+      const setPupY = gsap.quickTo('#heroPup', 'y', { duration: 0.35, ease: 'power2.out' });
+      const setStickerX = gsap.quickTo('#heroSticker', 'x', { duration: 0.32, ease: 'power2.out' });
+      const setStickerY = gsap.quickTo('#heroSticker', 'y', { duration: 0.32, ease: 'power2.out' });
 
       heroSection.addEventListener('mousemove', (e) => {
         const rect = heroSection.getBoundingClientRect();
@@ -3583,44 +3583,44 @@ window.addEventListener('DOMContentLoaded', () => {
     gsap.from(header.children, {
       scrollTrigger: {
         trigger: header,
-        start: 'top 85%',
+        start: 'top 88%',
         toggleActions: 'play none none none'
       },
-      y: 35,
+      y: 24,
       opacity: 0,
-      stagger: 0.12,
-      duration: 0.75,
+      stagger: 0.06,
+      duration: 0.42,
       ease: 'power3.out'
     });
   });
 
   /* ==========================================================
-     6. BEFORE & AFTER SLIDER SCROLL TRIGGER INTRO
+     6. BEFORE & AFTER SLIDER SCROLL TRIGGER INTRO (Quick Teaser)
   ========================================================== */
   if (baContainer) {
     ScrollTrigger.create({
       trigger: '#transformations',
-      start: 'top 70%',
+      start: 'top 75%',
       once: true,
       onEnter: () => {
-        // Playful teaser wiggle on the slider handle
+        // Snappy, energetic teaser wiggle
         const wiggleObj = { p: 50 };
         gsap.timeline()
           .to(wiggleObj, {
-            p: 32,
-            duration: 0.7,
-            ease: 'power2.inOut',
+            p: 38,
+            duration: 0.26,
+            ease: 'power2.out',
             onUpdate: () => baContainer.style.setProperty('--pos', `${wiggleObj.p}%`)
           })
           .to(wiggleObj, {
-            p: 68,
-            duration: 0.8,
+            p: 62,
+            duration: 0.28,
             ease: 'power2.inOut',
             onUpdate: () => baContainer.style.setProperty('--pos', `${wiggleObj.p}%`)
           })
           .to(wiggleObj, {
             p: 50,
-            duration: 0.6,
+            duration: 0.24,
             ease: 'power2.out',
             onUpdate: () => baContainer.style.setProperty('--pos', `${wiggleObj.p}%`)
           });
@@ -3636,25 +3636,25 @@ window.addEventListener('DOMContentLoaded', () => {
     gsap.from(serviceCards, {
       scrollTrigger: {
         trigger: '#serviceGrid',
-        start: 'top 80%',
+        start: 'top 85%',
         toggleActions: 'play none none none'
       },
-      y: 55,
+      y: 32,
       opacity: 0,
-      stagger: 0.1,
-      duration: 0.75,
+      stagger: 0.06,
+      duration: 0.45,
       ease: 'power3.out'
     });
 
     gsap.from('#serviceCta', {
       scrollTrigger: {
         trigger: '#serviceCta',
-        start: 'top 88%',
+        start: 'top 90%',
         toggleActions: 'play none none none'
       },
-      y: 30,
+      y: 18,
       opacity: 0,
-      duration: 0.6,
+      duration: 0.38,
       ease: 'power3.out'
     });
   }
@@ -3667,14 +3667,14 @@ window.addEventListener('DOMContentLoaded', () => {
     gsap.from(statCards, {
       scrollTrigger: {
         trigger: '#statsGrid',
-        start: 'top 80%',
+        start: 'top 85%',
         toggleActions: 'play none none none'
       },
-      scale: 0.88,
-      y: 45,
+      scale: 0.92,
+      y: 28,
       opacity: 0,
-      stagger: 0.12,
-      duration: 0.8,
+      stagger: 0.06,
+      duration: 0.45,
       ease: 'back.out(1.5)'
     });
 
@@ -3686,11 +3686,11 @@ window.addEventListener('DOMContentLoaded', () => {
       gsap.to(countObj, {
         scrollTrigger: {
           trigger: counter,
-          start: 'top 85%',
+          start: 'top 88%',
           toggleActions: 'play none none none'
         },
         val: target,
-        duration: 2.2,
+        duration: 0.95,
         ease: 'power2.out',
         onUpdate: () => {
           counter.textContent = isDecimal ? countObj.val.toFixed(1) : Math.floor(countObj.val);
@@ -3707,54 +3707,54 @@ window.addEventListener('DOMContentLoaded', () => {
     const storyTL = gsap.timeline({
       scrollTrigger: {
         trigger: storyGrid,
-        start: 'top 75%',
+        start: 'top 80%',
         toggleActions: 'play none none none'
       }
     });
 
     storyTL
       .from('.story-photo.big', {
-        x: -50,
-        rotation: -8,
+        x: -30,
+        rotation: -5,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.48,
         ease: 'power3.out'
       })
       .from('.story-photo.small', {
-        x: 40,
-        rotation: 12,
+        x: 25,
+        rotation: 8,
         opacity: 0,
-        duration: 0.75,
+        duration: 0.45,
         ease: 'back.out(1.6)'
-      }, '-=0.5')
+      }, '-=0.3')
       .from('.story-bubble', {
-        scale: 0.6,
+        scale: 0.7,
         opacity: 0,
-        rotation: -10,
-        duration: 0.6,
-        ease: 'back.out(2.2)'
-      }, '-=0.4')
+        rotation: -8,
+        duration: 0.38,
+        ease: 'back.out(2)'
+      }, '-=0.25')
       .from('.story-copy > *', {
-        x: 35,
+        x: 24,
         opacity: 0,
-        stagger: 0.1,
-        duration: 0.7,
+        stagger: 0.05,
+        duration: 0.42,
         ease: 'power3.out'
-      }, '-=0.6')
+      }, '-=0.32')
       .from('#storyChecklist .check', {
-        x: 20,
+        x: 16,
         opacity: 0,
-        stagger: 0.08,
-        duration: 0.5,
+        stagger: 0.04,
+        duration: 0.35,
         ease: 'power2.out'
-      }, '-=0.4');
+      }, '-=0.25');
 
     gsap.to('.story-photo.big', {
       scrollTrigger: {
         trigger: storyGrid,
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 1.5
+        scrub: 1
       },
       y: -25
     });
@@ -3764,7 +3764,7 @@ window.addEventListener('DOMContentLoaded', () => {
         trigger: storyGrid,
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 2
+        scrub: 1.2
       },
       y: 20
     });
@@ -3778,17 +3778,17 @@ window.addEventListener('DOMContentLoaded', () => {
     const processTL = gsap.timeline({
       scrollTrigger: {
         trigger: '#processGrid',
-        start: 'top 80%',
+        start: 'top 82%',
         toggleActions: 'play none none none'
       }
     });
 
     processTL.from(processCards, {
-      y: 60,
+      y: 36,
       opacity: 0,
-      rotation: (i) => [-2.5, 0, 2.5][i] || 0,
-      stagger: 0.14,
-      duration: 0.8,
+      rotation: (i) => [-1.5, 0, 1.5][i] || 0,
+      stagger: 0.07,
+      duration: 0.45,
       ease: 'power3.out'
     });
 
@@ -3798,14 +3798,14 @@ window.addEventListener('DOMContentLoaded', () => {
         gsap.from(emoji, {
           scrollTrigger: {
             trigger: card,
-            start: 'top 75%',
+            start: 'top 80%',
             toggleActions: 'play none none none'
           },
-          scale: 0.4,
-          rotation: 20,
-          duration: 0.6,
-          delay: 0.2,
-          ease: 'back.out(2.5)'
+          scale: 0.5,
+          rotation: 16,
+          duration: 0.4,
+          delay: 0.1,
+          ease: 'back.out(2.2)'
         });
       }
     });
@@ -3820,14 +3820,14 @@ window.addEventListener('DOMContentLoaded', () => {
     gsap.from(galleryItems, {
       scrollTrigger: {
         trigger: galleryGrid,
-        start: 'top 80%',
+        start: 'top 85%',
         toggleActions: 'play none none none'
       },
-      scale: 0.92,
-      y: 40,
+      scale: 0.94,
+      y: 25,
       opacity: 0,
-      stagger: 0.1,
-      duration: 0.75,
+      stagger: 0.05,
+      duration: 0.42,
       ease: 'power3.out'
     });
 
@@ -3835,12 +3835,12 @@ window.addEventListener('DOMContentLoaded', () => {
       gsap.from(tag, {
         scrollTrigger: {
           trigger: tag,
-          start: 'top 85%',
+          start: 'top 88%',
           toggleActions: 'play none none none'
         },
-        scale: 0.5,
+        scale: 0.7,
         opacity: 0,
-        duration: 0.5,
+        duration: 0.35,
         ease: 'back.out(2)'
       });
     });
@@ -3854,26 +3854,26 @@ window.addEventListener('DOMContentLoaded', () => {
     const packageTL = gsap.timeline({
       scrollTrigger: {
         trigger: '#packageGrid',
-        start: 'top 80%',
+        start: 'top 82%',
         toggleActions: 'play none none none'
       }
     });
 
     packageTL
       .from('.package:not(.featured)', {
-        y: 45,
+        y: 30,
         opacity: 0,
-        stagger: 0.12,
-        duration: 0.75,
+        stagger: 0.06,
+        duration: 0.45,
         ease: 'power3.out'
       })
       .from('.package.featured', {
-        scale: 0.9,
-        y: 60,
+        scale: 0.94,
+        y: 35,
         opacity: 0,
-        duration: 0.85,
-        ease: 'back.out(1.6)'
-      }, '-=0.5');
+        duration: 0.48,
+        ease: 'back.out(1.5)'
+      }, '-=0.3');
   }
 
   /* ==========================================================
@@ -3884,25 +3884,25 @@ window.addEventListener('DOMContentLoaded', () => {
     gsap.from('#faqIntro', {
       scrollTrigger: {
         trigger: faqGrid,
-        start: 'top 80%',
+        start: 'top 85%',
         toggleActions: 'play none none none'
       },
-      x: -40,
+      x: -25,
       opacity: 0,
-      duration: 0.75,
+      duration: 0.45,
       ease: 'power3.out'
     });
 
     gsap.from('#faqList details', {
       scrollTrigger: {
         trigger: '#faqList',
-        start: 'top 80%',
+        start: 'top 85%',
         toggleActions: 'play none none none'
       },
-      x: 35,
+      x: 20,
       opacity: 0,
-      stagger: 0.08,
-      duration: 0.65,
+      stagger: 0.04,
+      duration: 0.4,
       ease: 'power3.out'
     });
   }
@@ -3915,13 +3915,13 @@ window.addEventListener('DOMContentLoaded', () => {
     gsap.from(ctaRow, {
       scrollTrigger: {
         trigger: '#contact',
-        start: 'top 82%',
+        start: 'top 85%',
         toggleActions: 'play none none none'
       },
-      scale: 0.94,
-      y: 35,
+      scale: 0.96,
+      y: 25,
       opacity: 0,
-      duration: 0.8,
+      duration: 0.45,
       ease: 'power3.out'
     });
   }
@@ -3934,13 +3934,13 @@ window.addEventListener('DOMContentLoaded', () => {
     gsap.from(footerGrid.children, {
       scrollTrigger: {
         trigger: footerGrid,
-        start: 'top 90%',
+        start: 'top 92%',
         toggleActions: 'play none none none'
       },
-      y: 30,
+      y: 20,
       opacity: 0,
-      stagger: 0.1,
-      duration: 0.65,
+      stagger: 0.05,
+      duration: 0.4,
       ease: 'power3.out'
     });
   }
