@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Uptown Pet Salon — Chicago's Happy Place for Pets</title>
-<meta name="description" content="Dog and cat grooming at Uptown Pet Salon, Chicago. Call 773-878-8400.">
+<title>That's So Fetch! — Atlanta's Favorite Pet Care & Grooming</title>
+<meta name="description" content="Dog and cat grooming, spa baths, styling, and loving pet care at That's So Fetch! in Atlanta, GA. Text (678) 322-8530.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..800&family=Nunito:wght@600;700;800;900;1000&display=swap" rel="stylesheet">
@@ -64,7 +64,7 @@ button {
   -webkit-tap-highlight-color: transparent;
 }
 
-a:focus-visible, button:focus-visible, summary:focus-visible {
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
   outline: 3px solid var(--ink);
   outline-offset: 3px;
 }
@@ -139,7 +139,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .brand small {
   display: block;
   font: 800 8.5px "DM Sans", sans-serif;
-  letter-spacing: 2.2px;
+  letter-spacing: 2px;
   color: #435166;
   margin-top: 3px;
 }
@@ -147,7 +147,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .navlinks {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 28px;
   font-size: 13px;
   font-weight: 800;
 }
@@ -268,7 +268,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   min-height: 560px;
-  align-items: flex-start; /* Picture shifted up cleanly */
+  align-items: flex-start;
   gap: 36px;
   padding-top: 10px;
 }
@@ -410,19 +410,19 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 
 /* ==========================================================
-   HERO ART - PUSHED UP WITH INTENSE HOVER LAYERS
+   HERO ART - ELEVATED WITH INTENSE HOVER LAYERS
 ========================================================== */
 .hero-art {
   height: 610px;
   position: relative;
-  margin-top: -42px; /* LIFTED UP INTO HIGH VIEW */
+  margin-top: -42px;
   z-index: 2;
   perspective: 1200px;
 }
 
 .blob {
   position: absolute;
-  inset: 6px -8px 22px 10px; /* Shifted up to cradle the picture */
+  inset: 6px -8px 22px 10px;
   background: var(--yellow);
   border: 2.5px solid var(--ink);
   box-shadow: 11px 11px 0 var(--ink);
@@ -439,7 +439,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .hero-main-photo {
   position: absolute;
   left: 16%;
-  top: 0%; /* LIFTED TO THE VERY TOP */
+  top: 0%;
   width: 70%;
   height: 90%;
   border: 10px solid #ffffff;
@@ -490,7 +490,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 
 .float-photo.cat {
   left: -3%;
-  top: 11%; /* Raised higher up */
+  top: 11%;
   width: 35%;
   height: 31%;
   border-radius: 22px;
@@ -500,7 +500,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 
 .float-photo.pup {
   right: -3%;
-  bottom: 4%; /* Raised up */
+  bottom: 4%;
   width: 34%;
   height: 30%;
   border-radius: 22px;
@@ -527,17 +527,17 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   z-index: 6;
   border: 2.5px solid var(--ink);
   border-radius: 50%;
-  width: 102px;
-  height: 102px;
+  width: 104px;
+  height: 104px;
   background: var(--pink);
   display: grid;
   place-items: center;
   text-align: center;
-  font: 1000 12.5px/1.1 Nunito, sans-serif;
+  font: 1000 12px/1.1 Nunito, sans-serif;
   letter-spacing: -0.2px;
   transform: rotate(-13deg);
   right: -3%;
-  top: -2%; /* Pushed up nicely */
+  top: -2%;
   box-shadow: 5px 6px 0 var(--ink);
   user-select: none;
   cursor: pointer;
@@ -609,7 +609,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .marquee {
   overflow: hidden;
   background: var(--yellow);
-  border-block: 2px solid var(--ink);
+  border-block: 2.5px solid var(--ink);
   transform: rotate(-1.1deg) scale(1.025);
   position: relative;
   z-index: 4;
@@ -645,7 +645,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 
 .heading {
-  max-width: 640px;
+  max-width: 660px;
   margin: 0 auto 54px;
   text-align: center;
 }
@@ -667,16 +667,14 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 
 .heading p {
-  font-size: 14px;
+  font-size: 14.5px;
   line-height: 1.85;
   color: var(--muted);
-  max-width: 540px;
+  max-width: 560px;
   margin: 0 auto;
 }
 
-/* ==========================================================
-   DYNAMIC $10,000 CARD EFFECTS & HOVER STYLES
-========================================================== */
+/* Card Shine Overlay */
 .card-shine {
   position: absolute;
   inset: 0;
@@ -820,13 +818,178 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   transform: translate(3px, -3px);
 }
 
-.section-cta {
-  text-align: center;
-  margin-top: 50px;
+/* ==========================================================
+   NEW: BEFORE & AFTER GROOMING SLIDER SECTION
+========================================================== */
+.transformations {
+  background: #f7f9ff;
+  border-top: 2.5px solid var(--ink);
+}
+
+.slider-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.slider-tab {
+  background: #ffffff;
+  border: 2px solid var(--ink);
+  border-radius: 30px;
+  padding: 10px 20px;
+  font: 900 13px Nunito, sans-serif;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.2s ease, background 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.slider-tab:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.slider-tab.active {
+  background: var(--yellow);
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.ba-wrapper {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.ba-container {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  border: 3px solid var(--ink);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow-neobrutal-hover);
+  background: #111827;
+  user-select: none;
+  touch-action: none;
+  cursor: ew-resize;
+  --pos: 50%;
+}
+
+.ba-image-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ba-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  pointer-events: none;
+}
+
+.ba-before {
+  clip-path: polygon(0 0, var(--pos) 0, var(--pos) 100%, 0 100%);
+  z-index: 2;
+}
+
+.ba-after {
+  z-index: 1;
+}
+
+.ba-badge {
+  position: absolute;
+  top: 18px;
+  padding: 9px 15px;
+  border-radius: 6px;
+  font: 1000 12px Nunito, sans-serif;
+  letter-spacing: 0.04em;
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  z-index: 5;
+  user-select: none;
+}
+
+.before-badge {
+  left: 18px;
+  background: var(--pink);
+  color: var(--ink);
+}
+
+.after-badge {
+  right: 18px;
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  width: 4px;
+  background: var(--yellow);
+  border-left: 1.5px solid var(--ink);
+  border-right: 1.5px solid var(--ink);
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.ba-handle-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--yellow);
+  border: 2.5px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  font-weight: 1000;
+  color: var(--ink);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ba-container:hover .ba-handle-button {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.ba-caption-card {
+  margin-top: 24px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  padding: 16px 24px;
+  box-shadow: 4px 4px 0 var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ba-caption-card strong {
+  font: 1000 16px Nunito, sans-serif;
+  display: block;
+}
+
+.ba-caption-card p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
 }
 
 /* ==========================================================
-   STATS SECTION - TACTILE POP & ROTATION
+   STATS SECTION
 ========================================================== */
 .stats {
   background: var(--pink);
@@ -1073,7 +1236,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 
 /* ==========================================================
-   PROCESS SECTION - 3D POP & EMOJI WIGGLE
+   PROCESS SECTION
 ========================================================== */
 .process {
   background: var(--paper);
@@ -1172,7 +1335,185 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 
 /* ==========================================================
-   GALLERY SECTION - TACTILE TILES & ZOOMS
+   NEW: INTERACTIVE BOOKING / INQUIRY FORM SECTION
+========================================================== */
+.booking-section {
+  background: var(--sky);
+  border-block: 2.5px solid var(--ink);
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 70px;
+  align-items: flex-start;
+}
+
+.booking-intro {
+  position: sticky;
+  top: 40px;
+}
+
+.booking-intro h2 {
+  font: 1000 clamp(38px, 4.6vw, 56px)/0.98 Nunito, sans-serif;
+  letter-spacing: -2px;
+  margin: 12px 0 18px;
+}
+
+.booking-intro p {
+  font-size: 14.5px;
+  line-height: 1.85;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+
+.booking-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.perk-item {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.perk-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--yellow);
+  border: 2px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.perk-item strong {
+  font: 900 14px Nunito, sans-serif;
+  display: block;
+}
+
+.perk-item small {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.direct-contact-card {
+  background: #ffffff;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  padding: 18px 22px;
+  box-shadow: 4px 4px 0 var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.direct-contact-card span {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--muted);
+}
+
+.booking-card {
+  background: #ffffff;
+  border: 2.5px solid var(--ink);
+  border-radius: 22px;
+  padding: 38px;
+  box-shadow: var(--shadow-neobrutal-hover);
+  position: relative;
+  overflow: hidden;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-group label {
+  font: 900 12.5px Nunito, sans-serif;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  border: 2px solid var(--ink);
+  border-radius: 9px;
+  padding: 12px 14px;
+  font: 700 13.5px "DM Sans", sans-serif;
+  color: var(--ink);
+  background: #fafcff;
+  box-shadow: 2.5px 2.5px 0 var(--ink);
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  background-color: #ffffff;
+  box-shadow: 4px 4px 0 var(--ink);
+  border-color: #31589d;
+}
+
+.type-selector {
+  display: flex;
+  gap: 10px;
+}
+
+.type-btn {
+  flex: 1;
+  padding: 11px;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  font: 900 13px Nunito, sans-serif;
+  background: #ffffff;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.15s, background-color 0.2s, box-shadow 0.15s;
+}
+
+.type-btn.active {
+  background: var(--yellow);
+  box-shadow: 1px 1px 0 var(--ink);
+  transform: translate(2px, 2px);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 15px 22px;
+  font-size: 14.5px;
+  margin-top: 10px;
+}
+
+.form-status {
+  display: none;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  padding: 14px 18px;
+  font: 900 13.5px Nunito, sans-serif;
+  background: var(--mint);
+  box-shadow: 3px 3px 0 var(--ink);
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* ==========================================================
+   GALLERY SECTION
 ========================================================== */
 .gallery {
   background: var(--dark);
@@ -1318,7 +1659,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 
 /* ==========================================================
-   PACKAGES SECTION - 3D POP & BUTTON SPRING
+   PACKAGES SECTION
 ========================================================== */
 .packages {
   background: #f5f8ff;
@@ -1775,6 +2116,16 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   .service-photo {
     height: 180px;
   }
+  .ba-container {
+    height: 420px;
+  }
+  .booking-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .booking-intro {
+    position: static;
+  }
   .story-grid {
     gap: 40px;
   }
@@ -1913,6 +2264,20 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   .service-photo {
     height: 100%;
     min-height: 200px;
+  }
+  .ba-container {
+    height: 320px;
+  }
+  .ba-handle-button {
+    width: 44px;
+    height: 44px;
+    font-size: 13px;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .booking-card {
+    padding: 24px;
   }
   .stats {
     padding: 55px 0;
@@ -2095,24 +2460,30 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 {
   "@context": "https://schema.org",
   "@type": "PetStore",
-  "name": "Uptown Pet Salon",
-  "telephone": "+1-773-878-8400",
+  "name": "That's So Fetch!",
+  "telephone": "+1-678-322-8530",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "1712 W Lawrence Ave",
-    "addressLocality": "Chicago",
-    "addressRegion": "IL",
-    "postalCode": "60640",
+    "streetAddress": "897 Metropolitan Pkwy SW",
+    "addressLocality": "Atlanta",
+    "addressRegion": "GA",
+    "postalCode": "30310",
     "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 33.7304863,
+    "longitude": -84.4083169
   },
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "09:00",
-      "closes": "17:00"
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "07:00",
+      "closes": "20:30"
     }
-  ]
+  ],
+  "url": "https://thatssofetch.co"
 }
 </script>
 </head>
@@ -2126,18 +2497,19 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
         <a class="brand" href="#home">
           <span class="brand-mark magnetic">🐾</span>
           <span class="brand-text">
-            <span>Uptown</span>
-            <small>PET SALON · CHICAGO</small>
+            <span>That's So Fetch!</span>
+            <small>PET CARE & GROOMING · ATLANTA</small>
           </span>
         </a>
         <div class="navlinks" id="navlinks">
           <a href="#home">Home</a>
           <a href="#services">Services</a>
+          <a href="#transformations">Glow-Ups</a>
           <a href="#about">Our Story</a>
-          <a href="#gallery">Happy Tails</a>
           <a href="#packages">Menu</a>
+          <a href="#book">Book</a>
           <a href="#faq">FAQs</a>
-          <a href="#contact" class="nav-btn magnetic">Let's Talk <span class="btn-arrow-icon">↗</span></a>
+          <a href="#book" class="nav-btn magnetic">Let's Talk <span class="btn-arrow-icon">↗</span></a>
         </div>
         <button class="menu" id="menu" aria-label="Toggle menu">☰</button>
       </nav>
@@ -2148,12 +2520,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   <section class="hero" id="home">
     <div class="wrap hero-grid">
       <div class="hero-copy" id="heroCopy">
-        <div class="pill" id="heroPill"><b>🐾</b> Uptown Chicago · Since 2006</div>
-        <h1 id="heroTitle">Love, care &<br> <span class="highlight">happy tails.<span class="highlight-bar" id="highlightBar"></span></span><br>That's our thing.</h1>
-        <p id="heroText">From fresh trims to tiny paw-dicures, we help dogs and cats look adorable and feel comfortable. Good grooming, gentle hands, lots of personality.</p>
+        <div class="pill" id="heroPill"><b>🐾</b> Atlanta, GA · SW Atlanta Care</div>
+        <h1 id="heroTitle">Love, care &<br> <span class="highlight">so fetch!<span class="highlight-bar" id="highlightBar"></span></span><br>That's our thing.</h1>
+        <p id="heroText">From fresh trims to tiny paw-dicures, deep spa baths, and day care vibes, we help Atlanta dogs and cats look adorable and feel comfortable. Gentle hands, zero stress, huge personality.</p>
         <div class="hero-actions" id="heroActions">
-          <a class="btn-yellow magnetic" href="tel:+17738788400">Call to Book <span class="btn-arrow-icon">↗</span></a>
-          <a class="text-arrow" href="#services">Find their fresh ↓</a>
+          <a class="btn-yellow magnetic" href="#book">Book a Glow-Up <span class="btn-arrow-icon">↗</span></a>
+          <a class="text-arrow" href="sms:+16783228530">Text (678) 322-8530 ↓</a>
         </div>
         <div class="trust-mini" id="heroTrust">
           <div class="faces">
@@ -2162,8 +2534,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
             <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=100&q=80" alt="Dog">
           </div>
           <div>
-            <strong>Local love since 2006</strong>
-            <small>Dogs, cats & their favorite humans</small>
+            <strong>Atlanta's favorite floofs</strong>
+            <small>5.0 ★ Local Pet Care on Metropolitan Pkwy</small>
           </div>
         </div>
       </div>
@@ -2180,12 +2552,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
           <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=500&q=85" alt="Happy little dog">
         </div>
         <div class="sticker magnetic" id="heroSticker">
-          <div><span>✂️</span>FRESH<br>FUR CLUB</div>
+          <div><span>✂️</span>THAT'S SO<br>FETCH! CLUB</div>
         </div>
         <span class="paw-doodle pd1">🐾</span>
         <span class="paw-doodle pd2">✦</span>
         <span class="paw-doodle pd3">🐾</span>
-        <div class="hero-caption" id="heroCaption">Big love. Little paws. 💛</div>
+        <div class="hero-caption" id="heroCaption">Big love. So fetch! 💛</div>
       </div>
     </div>
   </section>
@@ -2193,10 +2565,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   <!-- Marquee Banner -->
   <div class="marquee" aria-label="Pet grooming services" id="marqueeBanner">
     <div class="marquee-track" id="marqueeTrack">
-      <span>Fresh cuts <b>✦</b> Happy paws <b>✦</b> Dog grooming <b>✦</b> Cat care <b>✦</b> Bath time <b>✦</b> Uptown Chicago <b>✦</b></span>
-      <span>Fresh cuts <b>✦</b> Happy paws <b>✦</b> Dog grooming <b>✦</b> Cat care <b>✦</b> Bath time <b>✦</b> Uptown Chicago <b>✦</b></span>
-      <span>Fresh cuts <b>✦</b> Happy paws <b>✦</b> Dog grooming <b>✦</b> Cat care <b>✦</b> Bath time <b>✦</b> Uptown Chicago <b>✦</b></span>
-      <span>Fresh cuts <b>✦</b> Happy paws <b>✦</b> Dog grooming <b>✦</b> Cat care <b>✦</b> Bath time <b>✦</b> Uptown Chicago <b>✦</b></span>
+      <span>Fresh cuts <b>✦</b> Happy paws <b>✦</b> Dog grooming <b>✦</b> Cat care <b>✦</b> Bath time <b>✦</b> Atlanta, GA <b>✦</b> That's So Fetch! <b>✦</b></span>
+      <span>Fresh cuts <b>✦</b> Happy paws <b>✦</b> Dog grooming <b>✦</b> Cat care <b>✦</b> Bath time <b>✦</b> Atlanta, GA <b>✦</b> That's So Fetch! <b>✦</b></span>
+      <span>Fresh cuts <b>✦</b> Happy paws <b>✦</b> Dog grooming <b>✦</b> Cat care <b>✦</b> Bath time <b>✦</b> Atlanta, GA <b>✦</b> That's So Fetch! <b>✦</b></span>
+      <span>Fresh cuts <b>✦</b> Happy paws <b>✦</b> Dog grooming <b>✦</b> Cat care <b>✦</b> Bath time <b>✦</b> Atlanta, GA <b>✦</b> That's So Fetch! <b>✦</b></span>
     </div>
   </div>
 
@@ -2205,8 +2577,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     <div class="wrap">
       <div class="heading gsap-header">
         <div class="eyebrow">THE PET GLOW-UP MENU</div>
-        <h2>Goodbye scruffy.<br>Hello <span style="background:linear-gradient(transparent 58%,var(--yellow) 58%)">oh-so-fluffy.</span></h2>
-        <p>Choose the kind of care your bestie needs. Not sure where to start? Give us a call and we'll help you figure it out.</p>
+        <h2>Goodbye scruffy.<br>Hello <span style="background:linear-gradient(transparent 58%,var(--yellow) 58%)">so-fresh floof.</span></h2>
+        <p>Choose the kind of care your bestie needs. From styling to spa baths or day care, we'll get your pet looking and feeling their absolute best.</p>
       </div>
 
       <div class="service-grid" id="serviceGrid">
@@ -2218,8 +2590,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
           </div>
           <div class="service-content">
             <h3>Haircuts & Styling</h3>
-            <p>Breed-inspired cuts, trims, styling, and shave-downs to suit your dog's coat and everyday life.</p>
-            <a class="service-link" href="tel:+17738788400">Let's talk cuts <span>↗</span></a>
+            <p>Breed-inspired cuts, teddy bear trims, styling, and shave-downs tailored to your dog's lifestyle and coat.</p>
+            <a class="service-link" href="#book">Book a cut <span>↗</span></a>
           </div>
         </article>
 
@@ -2230,9 +2602,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
             <span class="service-number">02 · CAT CLUB</span>
           </div>
           <div class="service-content">
-            <h3>Cat Grooming</h3>
-            <p>Brushing, combing, mat removal, baths, and lion cuts with care for feline comfort.</p>
-            <a class="service-link" href="tel:+17738788400">Purr-fect care <span>↗</span></a>
+            <h3>Cat Grooming & Spa</h3>
+            <p>Gentle brushing, combing, mat removal, sanitary trims, and lion cuts with calm care for feline comfort.</p>
+            <a class="service-link" href="#book">Purr-fect care <span>↗</span></a>
           </div>
         </article>
 
@@ -2243,9 +2615,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
             <span class="service-number">03 · SPLISH SPLASH</span>
           </div>
           <div class="service-content">
-            <h3>Baths & Blow-Drys</h3>
-            <p>Deep-cleansing baths, blow-dries, and specialty flea or medicated bath options.</p>
-            <a class="service-link" href="tel:+17738788400">Get squeaky clean <span>↗</span></a>
+            <h3>Baths & Fluff Blow-Drys</h3>
+            <p>Deep-cleansing shampoo, conditioning, blueberry facial, blow-dry, and brush out for a cloud-soft coat.</p>
+            <a class="service-link" href="#book">Get squeaky clean <span>↗</span></a>
           </div>
         </article>
 
@@ -2257,8 +2629,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
           </div>
           <div class="service-content">
             <h3>Nails & Paw Care</h3>
-            <p>Nail trims and grinding while you wait when walk-in availability allows. Call ahead first.</p>
-            <a class="service-link" href="tel:+17738788400">Check walk-ins <span>↗</span></a>
+            <p>Smooth nail trims and grinding, paw pad balm, and paw-dicures to keep little toes healthy and pain-free.</p>
+            <a class="service-link" href="#book">Check paw care <span>↗</span></a>
           </div>
         </article>
 
@@ -2269,9 +2641,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
             <span class="service-number">05 · LITTLE DETAILS</span>
           </div>
           <div class="service-content">
-            <h3>Hygiene & Maintenance</h3>
-            <p>Ear cleaning, paw-pad trimming, sanitary cuts, and other routine grooming details.</p>
-            <a class="service-link" href="tel:+17738788400">Tidy them up <span>↗</span></a>
+            <h3>Hygiene & Day Care</h3>
+            <p>Ear cleaning, sanitary maintenance, teeth brushing, plus social daytime play sessions in Atlanta.</p>
+            <a class="service-link" href="#book">Tidy them up <span>↗</span></a>
           </div>
         </article>
 
@@ -2283,14 +2655,63 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
           </div>
           <div class="service-content">
             <h3>Brush-Outs & Detangling</h3>
-            <p>Coat brushing and detangling to help manage knots and keep furry friends looking tidy.</p>
-            <a class="service-link" href="tel:+17738788400">Talk coat care <span>↗</span></a>
+            <p>Gentle coat brushing and detangling therapies to release stubborn knots while keeping your pet calm.</p>
+            <a class="service-link" href="#book">Talk coat care <span>↗</span></a>
           </div>
         </article>
       </div>
 
       <div class="section-cta" id="serviceCta">
-        <a class="btn-yellow magnetic" href="tel:+17738788400">Not sure what they need? Call us <span class="btn-arrow-icon">↗</span></a>
+        <a class="btn-yellow magnetic" href="#book">Not sure what they need? Ask us here <span class="btn-arrow-icon">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW: Before & After Groomed Pets Slider Section -->
+  <section class="section transformations" id="transformations">
+    <div class="wrap">
+      <div class="heading gsap-header">
+        <div class="eyebrow">BEFORE & AFTER GLOW-UPS</div>
+        <h2>Drag to see the magic.<br><span style="background:linear-gradient(transparent 58%,var(--yellow) 58%)">Total floof makeover.</span></h2>
+        <p>From overgrown knots and muddy scruffs to squeaky clean, camera-ready showstoppers. Slide the handle back and forth to reveal the transformation!</p>
+      </div>
+
+      <!-- Pet Switcher Tabs -->
+      <div class="slider-tabs">
+        <button type="button" class="slider-tab active" data-pet="0">🐶 Teddy (Doodle Glow-Up)</button>
+        <button type="button" class="slider-tab" data-pet="1">🐱 Luna (Persian Spa & De-Mat)</button>
+        <button type="button" class="slider-tab" data-pet="2">🐾 Milo (Yorkie Signature Fresh)</button>
+      </div>
+
+      <div class="ba-wrapper">
+        <div class="ba-container" id="baContainer" style="--pos: 50%;">
+          <!-- AFTER IMAGE (Underneath) -->
+          <div class="ba-image-wrapper ba-after">
+            <img id="baAfterImg" src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1200&q=90" alt="Freshly groomed happy pet">
+            <span class="ba-badge after-badge">AFTER · SO FETCH! ✨</span>
+          </div>
+
+          <!-- BEFORE IMAGE (Clipped on top) -->
+          <div class="ba-image-wrapper ba-before">
+            <img id="baBeforeImg" src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&q=85" alt="Scruffy pet before grooming">
+            <span class="ba-badge before-badge">BEFORE · SCRUFFY FLOOF 🐾</span>
+          </div>
+
+          <!-- DRAGGABLE HANDLE -->
+          <div class="ba-handle" id="baHandle">
+            <div class="ba-handle-button">
+              <span>‹ 🐾 ›</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ba-caption-card">
+          <div>
+            <strong id="baPetName">Teddy · Miniature Goldendoodle</strong>
+            <p id="baPetStory">Arrived with dense matting and overgrown curls. Received our Full Fetch bath, blueberry facial, gentle de-matting, and teddy bear cut!</p>
+          </div>
+          <a class="btn-yellow magnetic" href="#book" style="padding: 10px 18px; font-size: 12px;">Get This Glow-Up ↗</a>
+        </div>
       </div>
     </div>
   </section>
@@ -2301,20 +2722,20 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
       <div class="stat tilt-card">
         <div class="card-shine"></div>
         <div class="stat-icon">🐾</div>
-        <strong><span class="stat-counter" data-target="180">0</span>+</strong>
-        <small>Approx. customer reviews</small>
+        <strong><span class="stat-counter" data-target="500">0</span>+</strong>
+        <small>Happy Atlanta Pets Pampered</small>
       </div>
       <div class="stat tilt-card">
         <div class="card-shine"></div>
         <div class="stat-icon">✂️</div>
-        <strong><span class="stat-counter" data-target="18">0</span>+</strong>
-        <small>Years in the neighborhood</small>
+        <strong><span class="stat-counter" data-target="6">0</span>+</strong>
+        <small>Years Serving SW Atlanta</small>
       </div>
       <div class="stat tilt-card">
         <div class="card-shine"></div>
         <div class="stat-icon">🐶</div>
-        <strong><span class="stat-counter" data-target="4.5" data-decimal="1">0</span>/5</strong>
-        <small>Approx. directory rating</small>
+        <strong><span class="stat-counter" data-target="5.0" data-decimal="1">0</span>/5</strong>
+        <small>Google Verified Pet Rating</small>
       </div>
     </div>
   </section>
@@ -2329,23 +2750,23 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
         <div class="story-photo small">
           <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=600&q=85" alt="Happy dog close up">
         </div>
-        <div class="story-bubble">Your neighborhood pet people 🐾</div>
+        <div class="story-bubble">Atlanta's favorite pet people 🐾</div>
       </div>
 
       <div class="story-copy" id="storyCopy">
         <div class="eyebrow">A LITTLE LOVE GOES A LONG WAY</div>
-        <h2>They're not “just pets.”<br>They're your people.</h2>
-        <p>Uptown Pet Salon has been part of Chicago's Uptown and Ravenswood neighborhood since April 2006. We believe grooming should be thoughtful, personal, and tailored to the furry friend in front of us.</p>
-        <p>Whether your pet is full of zoomies or needs a little extra patience, call us to discuss their needs and the right service.</p>
+        <h2>They're not “just pets.”<br>They're your family.</h2>
+        <p>Located on Metropolitan Parkway SW in Atlanta, That's So Fetch! was founded on a simple belief: grooming and pet care should feel like a celebration, not a chore. We believe in gentle hands, individualized pacing, and boundless affection.</p>
+        <p>Whether your pup has endless zoomies, needs a calm sanctuary for an elder bath, or your feline friend needs dignified lion trimming, we tailor every single minute to them.</p>
         
         <div class="checklist" id="storyChecklist">
-          <div class="check"><span>✓</span> Dogs & cats</div>
-          <div class="check"><span>✓</span> Gentle handling</div>
-          <div class="check"><span>✓</span> Coat-specific care</div>
-          <div class="check"><span>✓</span> Local neighborhood salon</div>
+          <div class="check"><span>✓</span> Dogs & cats welcome</div>
+          <div class="check"><span>✓</span> Fear-free gentle handling</div>
+          <div class="check"><span>✓</span> Coat-specific conditioning</div>
+          <div class="check"><span>✓</span> Proud Atlanta neighborhood salon</div>
         </div>
 
-        <a class="btn-yellow magnetic" href="tel:+17738788400">Meet your pet's groomer <span class="btn-arrow-icon">↗</span></a>
+        <a class="btn-yellow magnetic" href="#book">Meet your pet's groomer <span class="btn-arrow-icon">↗</span></a>
       </div>
     </div>
   </section>
@@ -2356,7 +2777,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
       <div class="heading gsap-header">
         <div class="eyebrow">NO DRAMA. JUST GOOD GROOMS.</div>
         <h2>Three little steps<br>to a fresher floof.</h2>
-        <p>Booking is easy: a quick call gets the conversation started.</p>
+        <p>Getting your pet booked at That's So Fetch! is quick, seamless, and completely stress-free.</p>
       </div>
 
       <div class="process-grid" id="processGrid">
@@ -2364,10 +2785,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
           <div class="card-shine"></div>
           <div class="process-top">
             <span class="process-num">STEP 01</span>
-            <span class="process-emoji">📞</span>
+            <span class="process-emoji">💬</span>
           </div>
-          <h3>Tell us about your pet</h3>
-          <p>Share what your furry friend needs — a fresh cut, bath, nail trim, or cat grooming.</p>
+          <h3>Send Us a Quick Note</h3>
+          <p>Fill out our short request form or shoot us a quick text with what your fur baby needs.</p>
         </article>
 
         <article class="process-card tilt-card">
@@ -2376,8 +2797,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
             <span class="process-num">STEP 02</span>
             <span class="process-emoji">🫧</span>
           </div>
-          <h3>Pick the right service</h3>
-          <p>We'll talk through service options, availability, and pricing before you plan a visit.</p>
+          <h3>Custom Service Match</h3>
+          <p>We'll confirm availability, discuss coat requirements, and give you transparent upfront pricing.</p>
         </article>
 
         <article class="process-card tilt-card">
@@ -2386,9 +2807,114 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
             <span class="process-num">STEP 03</span>
             <span class="process-emoji">🐕</span>
           </div>
-          <h3>Get ready for happy</h3>
-          <p>Bring your bestie in for the care you discussed and a little extra fresh-and-fluffy love.</p>
+          <h3>Pickup So Fetch & Happy</h3>
+          <p>Drop your bestie off at our Atlanta salon and pick up a fluffy, fresh, strutting superstar!</p>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW: Interactive Booking / Request Form Section -->
+  <section class="section booking-section" id="book">
+    <div class="wrap">
+      <div class="booking-grid">
+        <div class="booking-intro gsap-header">
+          <div class="eyebrow">FAST & FRIENDLY BOOKING</div>
+          <h2>Ready to get<br>their fetch on? 🐕</h2>
+          <p>Drop your details below for an appointment request or service question. We text and reply fast to confirm timing, coat needs, and custom quotes!</p>
+          
+          <div class="booking-perks">
+            <div class="perk-item">
+              <span class="perk-icon">⚡</span>
+              <div>
+                <strong>Quick Text Confirmation</strong>
+                <small>We typically text back within the hour during salon hours</small>
+              </div>
+            </div>
+            <div class="perk-item">
+              <span class="perk-icon">🛁</span>
+              <div>
+                <strong>Gentle Hands Always</strong>
+                <small>Low-stress handling for shy or anxious pups & cats</small>
+              </div>
+            </div>
+            <div class="perk-item">
+              <span class="perk-icon">📍</span>
+              <div>
+                <strong>Convenient SW Atlanta Location</strong>
+                <small>897 Metropolitan Pkwy SW, Atlanta, GA 30310</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="direct-contact-card">
+            <span>Prefer to text directly right now?</span>
+            <a class="btn-yellow magnetic" href="sms:+16783228530">💬 Text Us: (678) 322-8530 ↗</a>
+          </div>
+        </div>
+
+        <div class="booking-card tilt-card">
+          <div class="card-shine"></div>
+          <form class="booking-form" id="bookingForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="parentName">Your Full Name *</label>
+                <input type="text" id="parentName" placeholder="e.g. Maya Jenkins" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Cell Phone (We text you) *</label>
+                <input type="tel" id="phone" placeholder="(678) 322-8530" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="petName">Pet's Name *</label>
+                <input type="text" id="petName" placeholder="e.g. Biscuit" required>
+              </div>
+              <div class="form-group">
+                <label>Pet Type *</label>
+                <div class="type-selector">
+                  <button type="button" class="type-btn active" id="typeDog" data-type="Dog">🐶 Dog</button>
+                  <button type="button" class="type-btn" id="typeCat" data-type="Cat">🐱 Cat</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="breed">Breed & Approx. Weight</label>
+                <input type="text" id="breed" placeholder="e.g. Goldendoodle, 35 lbs">
+              </div>
+              <div class="form-group">
+                <label for="serviceSelect">Service Needed *</label>
+                <select id="serviceSelect" required>
+                  <option value="Full Groom & Styling">Full Groom & Styling (Signature Cut)</option>
+                  <option value="Bath & Fluff Blow-Dry">Bath & Blow-Dry Spa Treatment</option>
+                  <option value="Cat Care & Lion Trim">Cat Grooming / Lion Cut</option>
+                  <option value="Nails & Quick Tidy">Nail Trim & Paw Tidy</option>
+                  <option value="Day Care & Play">Day Care & Social Play</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="preferredDate">Preferred Date & Window</label>
+              <input type="text" id="preferredDate" placeholder="e.g. This Saturday morning or next Tuesday">
+            </div>
+
+            <div class="form-group">
+              <label for="notes">Special Notes (Coat matting, skin allergies, temperament)</label>
+              <textarea id="notes" rows="3" placeholder="Tell us anything that will help make their visit happy and comfortable..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-yellow magnetic submit-btn" id="submitBtn">
+              Request Your Pet's Glow-Up <span class="btn-arrow-icon">↗</span>
+            </button>
+
+            <div class="form-status" id="formStatus"></div>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -2399,7 +2925,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
       <div class="heading gsap-header">
         <div class="eyebrow">THE CUTE STUFF</div>
         <h2>Proof that pawsome<br>comes in every shape.</h2>
-        <p>A little inspiration for your next grooming visit.</p>
+        <p>A little inspiration from our Atlanta furry family.</p>
       </div>
 
       <div class="gallery-grid" id="galleryGrid">
@@ -2429,7 +2955,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
           <div class="card-shine"></div>
           <span class="emoji">💛🐶</span>
           <h3>Little paws.<br>Huge personality.</h3>
-          <p>Serving Chicago's furry family since 2006.</p>
+          <p>Serving Atlanta's furry family with love.</p>
         </div>
       </div>
     </div>
@@ -2441,7 +2967,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
       <div class="heading gsap-header">
         <div class="eyebrow">LET'S FIND THEIR FRESH</div>
         <h2>What's on the<br>grooming menu?</h2>
-        <p>Every coat is different, so call us for current pricing and a recommendation that fits your pet.</p>
+        <p>Every coat is unique. Call or text us for current pricing and a tailored recommendation for your pet.</p>
       </div>
 
       <div class="package-grid" id="packageGrid">
@@ -2449,39 +2975,39 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
           <div class="card-shine"></div>
           <span class="package-icon">🐾</span>
           <h3>The Quick Tidy</h3>
-          <p>Little details that make a big difference.</p>
+          <p>Little details that make a massive difference.</p>
           <ul>
-            <li>Nail trimming or grinding</li>
-            <li>Ear-cleaning options</li>
-            <li>Ask about walk-in availability</li>
+            <li>Nail trimming & smooth grinding</li>
+            <li>Ear cleaning & eye clearing</li>
+            <li>Sanitary & paw-pad tidy</li>
           </ul>
-          <a class="btn-yellow magnetic" href="tel:+17738788400">Ask about a tidy <span class="btn-arrow-icon">↗</span></a>
+          <a class="btn-yellow magnetic" href="#book">Ask about a tidy <span class="btn-arrow-icon">↗</span></a>
         </article>
 
         <article class="package featured tilt-card">
           <div class="card-shine"></div>
           <span class="package-icon">✂️</span>
-          <h3>The Full Fresh</h3>
-          <p>A grooming refresh based on your dog's coat and style.</p>
+          <h3>The Full Fetch</h3>
+          <p>Our head-to-paw signature glow-up experience.</p>
           <ul>
-            <li>Bath and blow-dry options</li>
-            <li>Haircut, trim, or styling</li>
-            <li>Hygiene maintenance options</li>
+            <li>Deep cleansing bath & fluff blow-dry</li>
+            <li>Custom breed haircut, styling, or trim</li>
+            <li>Nail grinding, ear care, and scented spritz</li>
           </ul>
-          <a class="btn-yellow magnetic" href="tel:+17738788400">Ask about a full groom <span class="btn-arrow-icon">↗</span></a>
+          <a class="btn-yellow magnetic" href="#book">Book the full fetch <span class="btn-arrow-icon">↗</span></a>
         </article>
 
         <article class="package tilt-card">
           <div class="card-shine"></div>
           <span class="package-icon">🐱</span>
-          <h3>The Cat Care</h3>
-          <p>Feline grooming options, discussed around your cat's needs.</p>
+          <h3>The Feline Spa</h3>
+          <p>Thoughtful grooming tailored to your cat's comfort.</p>
           <ul>
-            <li>Brushing and combing</li>
-            <li>Mat removal or lion cut</li>
-            <li>Bath options by consultation</li>
+            <li>Coat brushing, combing & mat relief</li>
+            <li>Lion cut or sanitary styling</li>
+            <li>Stress-free quiet handling</li>
           </ul>
-          <a class="btn-yellow magnetic" href="tel:+17738788400">Ask about cat care <span class="btn-arrow-icon">↗</span></a>
+          <a class="btn-yellow magnetic" href="#book">Ask about cat care <span class="btn-arrow-icon">↗</span></a>
         </article>
       </div>
     </div>
@@ -2493,31 +3019,31 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
       <div class="faq-intro" id="faqIntro">
         <div class="eyebrow">GOOD TO KNOW</div>
         <h2>Pet-parent<br>questions.</h2>
-        <p>Wondering about a service, walk-ins, or hours? Here's a quick start. Call us for the latest availability.</p>
-        <a class="btn-yellow magnetic" href="tel:+17738788400">Ask us directly <span class="btn-arrow-icon">↗</span></a>
+        <p>Wondering about a service, walk-ins, or hours? Here's a quick start. Text or message us anytime for current availability.</p>
+        <a class="btn-yellow magnetic" href="sms:+16783228530">Text us directly <span class="btn-arrow-icon">↗</span></a>
         <div class="faq-decoration">🐾 🐾</div>
       </div>
 
       <div class="faq-list" id="faqList">
         <details open>
           <summary>Do you groom both dogs and cats?<span>＋</span></summary>
-          <p>Yes. Services include dog haircuts and styling, cat grooming, brushing, mat removal, and bath options. Call to discuss your pet's needs.</p>
+          <p>Yes! We provide full breed haircuts, trims, deep spa baths, cat lion cuts, brushing, and de-matting. We tailor pacing to each animal's comfort level.</p>
         </details>
         <details>
-          <summary>Can I walk in for a nail trim?<span>＋</span></summary>
-          <p>Walk-in nail trimming and grinding may be available. Call ahead to confirm availability and wait times.</p>
+          <summary>Is it better to call or text you?<span>＋</span></summary>
+          <p>We recommend texting us at (678) 322-8530! Because our hands are often with furry friends in the tub or at the grooming table, text messages allow us to reply rapidly within the hour.</p>
         </details>
         <details>
           <summary>What are your opening hours?<span>＋</span></summary>
-          <p>Monday through Saturday, 9:00 AM–5:00 PM. Closed Sundays.</p>
+          <p>We are open daily from 7:00 AM to 8:30 PM, Monday through Sunday.</p>
+        </details>
+        <details>
+          <summary>Where are you located in Atlanta?<span>＋</span></summary>
+          <p>We are located at 897 Metropolitan Pkwy SW, Atlanta, GA 30310 in the vibrant Southwest Atlanta area.</p>
         </details>
         <details>
           <summary>How do I book an appointment?<span>＋</span></summary>
-          <p>Booking is currently by phone. Call (773) 878-8400 to ask about appointment availability, services, and pricing.</p>
-        </details>
-        <details>
-          <summary>Where are you located?<span>＋</span></summary>
-          <p>1712 W Lawrence Ave, Chicago, IL 60640, in the Uptown / Ravenswood area.</p>
+          <p>You can fill out our online request form above or shoot a quick text to (678) 322-8530 with your pet's breed, service needed, and preferred dates.</p>
         </details>
       </div>
     </div>
@@ -2528,11 +3054,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     <div class="wrap cta-row" id="ctaRow">
       <div>
         <h2>Let's get that tail<br>doing the helicopter. 🐕</h2>
-        <p>Call Uptown Pet Salon to talk services, availability, and pricing. 1712 W Lawrence Ave, Chicago, IL 60640 · Mon–Sat, 9 AM–5 PM · Closed Sunday.</p>
+        <p>Reach That's So Fetch! for grooming, baths, daycare, and pet care. 897 Metropolitan Pkwy SW, Atlanta, GA 30310 · Daily 7:00 AM – 8:30 PM.</p>
       </div>
       <div class="cta-buttons">
-        <a class="btn-dark magnetic" href="tel:+17738788400">☎ &nbsp; (773) 878-8400</a>
-        <a class="btn-yellow magnetic" href="https://www.google.com/maps/search/Uptown+Pet+Salon+Chicago+IL" target="_blank" rel="noopener">Get Directions <span class="btn-arrow-icon">↗</span></a>
+        <a class="btn-dark magnetic" href="sms:+16783228530">💬 Text (678) 322-8530</a>
+        <a class="btn-yellow magnetic" href="https://www.google.com/maps/place/That's+So+Fetch!/@33.7304907,-84.4108918,17z/data=!3m1!4b1!4m6!3m5!1s0x88f503211bca6745:0x78f6bcc36a8e826!8m2!3d33.7304863!4d-84.4083169!16s%2Fg%2F11fwkc7vxp" target="_blank" rel="noopener">Get Directions <span class="btn-arrow-icon">↗</span></a>
       </div>
     </div>
   </section>
@@ -2545,14 +3071,14 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
           <a class="brand" href="#home" style="color:white;">
             <span class="brand-mark magnetic">🐾</span>
             <span class="brand-text">
-              <span>Uptown</span>
-              <small style="color:#a8b4c7;">PET SALON · CHICAGO</small>
+              <span>That's So Fetch!</span>
+              <small style="color:#a8b4c7;">PET CARE & GROOMING · ATLANTA</small>
             </span>
           </a>
-          <p>Dog and cat grooming with a little extra love. Proud to be part of the Uptown neighborhood since 2006.</p>
+          <p>Dog and cat grooming with boundless love and joyful energy. Proudly serving Atlanta pet families.</p>
           <div class="socials">
-            <a href="https://facebook.com/uptownpetsalon" target="_blank" rel="noopener" aria-label="Facebook">f</a>
-            <a href="https://www.google.com/maps/search/Uptown+Pet+Salon+Chicago+IL" target="_blank" rel="noopener" aria-label="Google Maps">⌖</a>
+            <a href="https://thatssofetch.co" target="_blank" rel="noopener" aria-label="Website">🌐</a>
+            <a href="https://www.google.com/maps/place/That's+So+Fetch!/@33.7304907,-84.4108918,17z/data=!3m1!4b1!4m6!3m5!1s0x88f503211bca6745:0x78f6bcc36a8e826!8m2!3d33.7304863!4d-84.4083169!16s%2Fg%2F11fwkc7vxp" target="_blank" rel="noopener" aria-label="Google Maps">⌖</a>
           </div>
         </div>
 
@@ -2560,9 +3086,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
           <h4>Take a Look</h4>
           <div class="footer-links">
             <a href="#services">Services</a>
+            <a href="#transformations">Before & After</a>
             <a href="#about">Our Story</a>
-            <a href="#gallery">Happy Tails</a>
             <a href="#packages">Grooming Menu</a>
+            <a href="#book">Book a Visit</a>
             <a href="#faq">FAQs</a>
           </div>
         </div>
@@ -2570,39 +3097,38 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
         <div>
           <h4>Care Menu</h4>
           <div class="footer-links">
-            <a href="#services">Dog Haircuts</a>
+            <a href="#services">Dog Styling & Cuts</a>
             <a href="#services">Cat Grooming</a>
             <a href="#services">Baths & Blow-Drys</a>
-            <a href="#services">Nail Care</a>
-            <a href="#services">Hygiene Care</a>
+            <a href="#services">Nail & Paw Care</a>
+            <a href="#services">Daycare & Play</a>
           </div>
         </div>
 
         <div>
           <h4>Come Say Hi</h4>
           <div class="footer-links">
-            <span>1712 W Lawrence Ave</span>
-            <span>Chicago, IL 60640</span>
-            <a href="tel:+17738788400">(773) 878-8400</a>
-            <span>Mon–Sat: 9 AM–5 PM</span>
-            <span>Sunday: Closed</span>
-            <a href="https://www.google.com/maps/search/Uptown+Pet+Salon+Chicago+IL" target="_blank" rel="noopener">Directions ↗</a>
+            <span>897 Metropolitan Pkwy SW</span>
+            <span>Atlanta, GA 30310</span>
+            <a href="sms:+16783228530">Text: (678) 322-8530</a>
+            <span>Daily: 7:00 AM – 8:30 PM</span>
+            <a href="https://www.google.com/maps/place/That's+So+Fetch!/@33.7304907,-84.4108918,17z/data=!3m1!4b1!4m6!3m5!1s0x88f503211bca6745:0x78f6bcc36a8e826!8m2!3d33.7304863!4d-84.4083169!16s%2Fg%2F11fwkc7vxp" target="_blank" rel="noopener">Directions on Maps ↗</a>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <span>© <span id="year"></span> Uptown Pet Salon. All rights reserved.</span>
+        <span>© <span id="year"></span> That's So Fetch! LLC. All rights reserved.</span>
         <span>Made for the furry family. 🐾</span>
       </div>
     </div>
   </footer>
 
   <!-- Toast & Mobile Fixed Bar -->
-  <div class="toast" id="toast">Opening your phone app…</div>
+  <div class="toast" id="toast">Opening messaging app…</div>
   <div class="mobile-book" id="mobileBook">
-    <span><strong>Ready for a fresh look?</strong>Uptown Pet Salon · Chicago</span>
-    <a href="tel:+17738788400">Call to Book ↗</a>
+    <span><strong>Ready for a fresh look?</strong>That's So Fetch! · Atlanta</span>
+    <a href="#book">Book a Glow-Up ↗</a>
   </div>
 
 </div>
@@ -2640,8 +3166,8 @@ window.addEventListener('DOMContentLoaded', () => {
     lastY = window.scrollY;
   }, { passive: true });
 
-  // Call click toast
-  document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+  // SMS / Call click toast
+  document.querySelectorAll('a[href^="sms:"], a[href^="tel:"]').forEach(a => {
     a.addEventListener('click', () => {
       const t = document.getElementById('toast');
       if (t) {
@@ -2653,7 +3179,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Interactive Click Sparks / Floating Paws
   document.addEventListener('click', (e) => {
-    if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.service-card') || e.target.closest('.process-card') || e.target.closest('.package') || e.target.closest('.hero-art')) {
+    if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.service-card') || e.target.closest('.process-card') || e.target.closest('.package') || e.target.closest('.hero-art') || e.target.closest('.ba-container')) {
       const spark = document.createElement('div');
       spark.className = 'click-spark';
       spark.textContent = ['🐾', '✨', '💛', '✦', '🐶', '✂️'][Math.floor(Math.random() * 6)];
@@ -2673,6 +3199,134 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+
+  /* ==========================================================
+     BEFORE & AFTER INTERACTIVE SLIDER
+  ========================================================== */
+  const baContainer = document.getElementById('baContainer');
+  const baBeforeImg = document.getElementById('baBeforeImg');
+  const baAfterImg = document.getElementById('baAfterImg');
+  const baPetName = document.getElementById('baPetName');
+  const baPetStory = document.getElementById('baPetStory');
+
+  const petsData = [
+    {
+      name: 'Teddy · Miniature Goldendoodle',
+      story: 'Arrived with dense matting and overgrown curls. Received our Full Fetch bath, blueberry facial, gentle de-matting, and teddy bear cut!',
+      before: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&q=85',
+      after: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1200&q=90'
+    },
+    {
+      name: 'Luna · Persian Cat',
+      story: 'Heavy undercoat shedding and belly mats. Received a gentle calming comb-out, sanitary trim, and plush spa conditioning.',
+      before: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1200&q=85',
+      after: 'https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=1200&q=85'
+    },
+    {
+      name: 'Milo · Yorkshire Terrier',
+      story: 'Needed an urgent summer refresh! Styled with a neat puppy contour cut, ear tassels, paw pad grooming, and fresh bandana.',
+      before: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=1200&q=85',
+      after: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=85'
+    }
+  ];
+
+  if (baContainer) {
+    let isDragging = false;
+
+    const setPosition = (clientX) => {
+      const rect = baContainer.getBoundingClientRect();
+      let percent = ((clientX - rect.left) / rect.width) * 100;
+      percent = Math.max(5, Math.min(95, percent));
+      baContainer.style.setProperty('--pos', `${percent}%`);
+    };
+
+    baContainer.addEventListener('pointerdown', (e) => {
+      isDragging = true;
+      setPosition(e.clientX);
+    });
+
+    window.addEventListener('pointermove', (e) => {
+      if (isDragging) {
+        setPosition(e.clientX);
+      }
+    });
+
+    window.addEventListener('pointerup', () => {
+      isDragging = false;
+    });
+
+    // Pet Switcher Tabs
+    const tabs = document.querySelectorAll('.slider-tab');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const idx = parseInt(tab.getAttribute('data-pet'), 10);
+        const data = petsData[idx];
+
+        // Animate image transition
+        gsap.to([baBeforeImg, baAfterImg], {
+          opacity: 0.3,
+          scale: 0.98,
+          duration: 0.2,
+          onComplete: () => {
+            baBeforeImg.src = data.before;
+            baAfterImg.src = data.after;
+            baPetName.textContent = data.name;
+            baPetStory.textContent = data.story;
+            baContainer.style.setProperty('--pos', '50%');
+
+            gsap.to([baBeforeImg, baAfterImg], {
+              opacity: 1,
+              scale: 1,
+              duration: 0.35,
+              ease: 'power2.out'
+            });
+          }
+        });
+      });
+    });
+  }
+
+  /* ==========================================================
+     BOOKING FORM INTERACTION
+  ========================================================== */
+  const typeButtons = document.querySelectorAll('.type-btn');
+  let selectedPetType = 'Dog';
+  typeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      typeButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedPetType = btn.getAttribute('data-type');
+    });
+  });
+
+  const bookingForm = document.getElementById('bookingForm');
+  const formStatus = document.getElementById('formStatus');
+  if (bookingForm && formStatus) {
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const parent = document.getElementById('parentName').value;
+      const pet = document.getElementById('petName').value;
+      const phone = document.getElementById('phone').value;
+      const service = document.getElementById('serviceSelect').value;
+
+      formStatus.style.display = 'block';
+      formStatus.innerHTML = `🎉 <strong>Woof! Thanks ${parent}!</strong><br>We received your request for <strong>${pet}</strong> (${service}). We'll text <strong>${phone}</strong> shortly to confirm your booking! 🐾`;
+
+      gsap.from(formStatus, {
+        scale: 0.9,
+        y: 10,
+        opacity: 0,
+        duration: 0.45,
+        ease: 'back.out(2)'
+      });
+
+      bookingForm.reset();
+      typeButtons[0].classList.add('active');
+      typeButtons[1].classList.remove('active');
+    });
+  }
 
   // Check reduced motion
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -2793,7 +3447,7 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ==========================================================
-     3. $10,000 STUDIO 3D CARD TILT & SPOTLIGHT EFFECTS
+     3. 3D CARD TILT & SPOTLIGHT EFFECTS
   ========================================================== */
   if (window.innerWidth > 960) {
     const tiltCards = document.querySelectorAll('.tilt-card');
@@ -2803,7 +3457,6 @@ window.addEventListener('DOMContentLoaded', () => {
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        // Set spotlight coordinates
         card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
         card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
 
@@ -2833,7 +3486,7 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Magnetic buttons
+    // Magnetic elements
     const magneticItems = document.querySelectorAll('.magnetic');
     magneticItems.forEach(el => {
       el.addEventListener('mousemove', (e) => {
@@ -2942,7 +3595,41 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ==========================================================
-     6. SERVICES CARDS STAGGER & HOVER
+     6. BEFORE & AFTER SLIDER SCROLL TRIGGER INTRO
+  ========================================================== */
+  if (baContainer) {
+    ScrollTrigger.create({
+      trigger: '#transformations',
+      start: 'top 70%',
+      once: true,
+      onEnter: () => {
+        // Playful teaser wiggle on the slider handle
+        const wiggleObj = { p: 50 };
+        gsap.timeline()
+          .to(wiggleObj, {
+            p: 32,
+            duration: 0.7,
+            ease: 'power2.inOut',
+            onUpdate: () => baContainer.style.setProperty('--pos', `${wiggleObj.p}%`)
+          })
+          .to(wiggleObj, {
+            p: 68,
+            duration: 0.8,
+            ease: 'power2.inOut',
+            onUpdate: () => baContainer.style.setProperty('--pos', `${wiggleObj.p}%`)
+          })
+          .to(wiggleObj, {
+            p: 50,
+            duration: 0.6,
+            ease: 'power2.out',
+            onUpdate: () => baContainer.style.setProperty('--pos', `${wiggleObj.p}%`)
+          });
+      }
+    });
+  }
+
+  /* ==========================================================
+     7. SERVICES CARDS STAGGER
   ========================================================== */
   const serviceCards = gsap.utils.toArray('.service-card');
   if (serviceCards.length) {
@@ -2973,7 +3660,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================
-     7. STATS CARDS & ANIMATED NUMBER COUNTERS
+     8. STATS CARDS & ANIMATED NUMBER COUNTERS
   ========================================================== */
   const statCards = gsap.utils.toArray('.stat');
   if (statCards.length) {
@@ -3013,7 +3700,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================
-     8. OUR STORY (Visual + Copy + Checklist Stagger)
+     9. OUR STORY
   ========================================================== */
   const storyGrid = document.getElementById('storyGrid');
   if (storyGrid) {
@@ -3084,7 +3771,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================
-     9. PROCESS STEPS (Dynamic tilt & emoji bounce)
+     10. PROCESS STEPS
   ========================================================== */
   const processCards = gsap.utils.toArray('.process-card');
   if (processCards.length) {
@@ -3125,7 +3812,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================
-     10. GALLERY (Staggered Tile Reveals + Tag Stamps)
+     11. GALLERY
   ========================================================== */
   const galleryGrid = document.getElementById('galleryGrid');
   if (galleryGrid) {
@@ -3160,7 +3847,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================
-     11. PACKAGES (Pricing Cards with Featured Pop)
+     12. PACKAGES
   ========================================================== */
   const packageCards = gsap.utils.toArray('.package');
   if (packageCards.length) {
@@ -3190,7 +3877,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================
-     12. FAQ (Intro & Staggered Accordion Items)
+     13. FAQ
   ========================================================== */
   const faqGrid = document.getElementById('faqGrid');
   if (faqGrid) {
@@ -3221,7 +3908,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================
-     13. FINAL CTA (Impact Scale & Button Pop)
+     14. FINAL CTA
   ========================================================== */
   const ctaRow = document.getElementById('ctaRow');
   if (ctaRow) {
@@ -3240,7 +3927,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================
-     14. FOOTER (Staggered Column Entrance)
+     15. FOOTER
   ========================================================== */
   const footerGrid = document.querySelector('.footer-grid');
   if (footerGrid) {
